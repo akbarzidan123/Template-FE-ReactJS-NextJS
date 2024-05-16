@@ -1,0 +1,159 @@
+.trigger {
+	font-size: 18px;
+	padding: 0 20px;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.trigger:hover {
+	color: @primary-color;
+}
+
+.logo {
+	height: 50px;
+	color: #fff;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+	margin: 0 20px;
+}
+
+.iconaction {
+	background: #f6f8f9;
+	padding: 0 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	width: auto;
+	height: 40px;
+	&:hover {
+		background: #ddd;
+	}
+}
+
+.icondata {
+	border-radius: 4px;
+	text-transform: uppercase;
+	text-align: center;
+	&:focus{
+		outline: unset;
+	}
+}
+
+.siteLayout {
+	transition: all 0.2s;
+}
+
+.root {
+	:global {
+		.ant-layout-sider-collapsed {
+			max-width: 50px !important;
+			min-width: 50px !important;
+			width: 50px !important;
+
+			.ant-menu-inline-collapsed {
+				width: 50px;
+
+				.ant-menu-item {
+					text-align: center;
+				}
+			}
+
+			:local(.logo) {
+				justify-content: center;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.sidebar {
+	:global {
+		.ant-menu {
+			.ant-menu-item {
+				padding: 12px 16px !important;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 39px;
+				color: #676d72;
+				height: 40px;
+			}
+
+			.ant-menu-item-selected {
+				color: white;
+			}
+		}
+	}
+}
+
+.content {
+	margin: 0;
+	padding: 0px 20px !important;
+}
+
+.contentoken {
+	margin: 0;
+	padding: 0px !important;
+}
+
+.headerRight {
+	padding: 0 30px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.42);
+	z-index: 98;
+	cursor: pointer;
+}
+
+.contentContainer {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+.primaryHeader {
+	display: flex;
+	flex: 1;
+	font-size: 21px;
+	line-height: 25px;
+	justify-content: space-between;
+	align-items: baseline;
+
+	h1 {
+		color: @primary-color;
+	}
+	span {
+		font-size: 14px;
+		line-height: 16px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+
+.secondaryHeader {
+	flex: 1;
+	display: flex;
+	align-items: flex-start;
+	h1 {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 19px;
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+}
+
+.title {
+	margin: 3px 10px 0 !important;
+}
