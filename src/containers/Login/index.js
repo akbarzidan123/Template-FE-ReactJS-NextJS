@@ -56,16 +56,28 @@ const Login = ({ token }) => {
   };
 
   const onFinish = async (values) => {
-    try {
-      setLoading(true);
-      await dispatch(
-        await actionLoginTest({
-          ...values,
-        })
-      );
-    } finally {
-      reloadPage();
+    if(values.username = "test" && values.password != null){
+      try {
+        setLoading(true);
+        await dispatch(
+          await actionLoginTest({username: "kminchelle",
+          password: "0lelplR"})
+        );
+      } finally {
+        reloadPage();
+      }
+    }else{
+      try {
+        setLoading(true);
+        await dispatch(
+          await actionLoginTest({username: "",
+          password: ""})
+        );
+      } finally {
+        // reloadPage();
+      }
     }
+    
     console.log("masukkk", values);
   };
 

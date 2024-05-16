@@ -11,15 +11,7 @@ export default class Storage {
 
   constructor(
     name = mandatory(),
-    value = {
-      order_id: 7352926734,
-      name: "Zeus",
-      userAccount: { fullName: "Zeus Deva", nik: "13282354" },
-      userBranch: { branch_name: "Jakarta", branch_code: "1314" },
-      age: 19,
-      token:
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNTk5NzM4MyIsImV4cCI6MTcxNTc1Nzg2MywiaWF0IjoxNzE1NjcxNDYzfQ.9U2GxPk9AAADRER2MFu2--IZAXNXlGg9WhhARGZKFf6yMuvrYEblaah2vPyhkXroREdY9hOpAbcYQmdAQxYUhA",
-    },
+    value = {},
     options = {}
   ) {
     this.#name = name;

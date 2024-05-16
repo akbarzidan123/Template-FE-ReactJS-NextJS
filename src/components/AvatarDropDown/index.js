@@ -22,7 +22,7 @@ const defaultProps = {
 const AvatarDropDown = ({ style }) => {
   const [visible, setVisible] = useState(false);
 
-  const { userAccount, userBranch, iamResult } = AuthStorage.data || {};
+  const { firstName,gender, iamResult } = AuthStorage.data || {};
   const { resultUserProfileLocation } = iamResult || {};
   // const userBranch =
   // 	resultUserProfileLocation?.find(
@@ -67,9 +67,9 @@ const AvatarDropDown = ({ style }) => {
     <Dropdown style={style} overlay={menu} trigger={["click"]}>
       <Row className="align-items-center">
         <UserOutlined style={{ lineHeight: "50px", fontSize: "16px" }} />
-        {userAccount && userBranch && (
+        {firstName && gender && (
           <div className="pl-2 d-sm-hide">
-            {userAccount?.fullName} - {userBranch?.branch_name}
+            {firstName} - {gender}
           </div>
         )}
       </Row>

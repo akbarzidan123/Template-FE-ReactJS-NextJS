@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import AuthStorage from "src/utils/auth-storage";
 // import IdStorage from "src/utils/id-storage";
 
-import DashboardReturn from "../../containers/DashboardReturn/index";
+import Dashboard from "../Dashboard/index";
 import Login from "../../containers/Login/index";
 import ReturnSurveyKYC from "../../containers/ReturnSurveyKYC";
 import applicationStorage from "src/utils/application-storage";
@@ -78,7 +78,7 @@ const Index = (props) => {
               {test2 == undefined ? (
                 <ReturnSurveyKYC token={token} />
               ) : (
-                <DashboardReturn token={token} />
+                <Dashboard token={token} />
               )}
             </>
           ) : (
@@ -92,7 +92,7 @@ const Index = (props) => {
               {idStorage.data ? (
                 <ReturnSurveyKYC token={null} />
               ) : (
-                <DashboardReturn token={null} />
+                <Dashboard token={null} />
               )}
             </>
           ) : (
