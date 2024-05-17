@@ -17,7 +17,7 @@ import {
 } from "antd";
 // import moment from "moment";
 import { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Components
 import Table from "src/components/Table";
@@ -30,7 +30,7 @@ import Title from "src/components/Title";
 // import ApplicationStorage from "src/utils/application-storage";
 
 // // Actions
-// import { actionFetchApprovalData } from "src/redux/actions/data";
+import { actionFetchApprovalData } from "src/redux/actions/data";
 // import {
 //   setFlagJoinIncome,
 //   setFlagTagih,
@@ -61,48 +61,48 @@ const redirect = (_data) => {
 
 const columns = [
   {
-    title: "Source Order",
-    dataIndex: "sourceOrder",
+    title: "ID",
+    dataIndex: "id",
     width: "150px",
     key: "1",
   },
   {
-    title: "Cabang",
-    dataIndex: "cabang",
+    title: "Judul",
+    dataIndex: "title",
     key: "2",
   },
   {
-    title: "No. Aplikasi",
-    dataIndex: "noAplikasi",
+    title: "Deskripsi",
+    dataIndex: "description",
     width: 150,
     key: "3",
   },
   {
-    title: "Tgl. Aplikasi",
-    dataIndex: "tanggalAplikasi",
+    title: "Harga",
+    dataIndex: "price",
     key: "4",
   },
   {
-    title: "Nama Debitur",
-    dataIndex: "namaDebitur",
+    title: "Discount",
+    dataIndex: "discountPercentage",
     width: 300,
     key: "5",
   },
   {
-    title: "Alamat Domisili",
-    dataIndex: "alamatDomisili",
+    title: "Rating",
+    dataIndex: "rating",
     key: "6",
     width: 300,
   },
   {
-    title: "Nama Dealer",
-    dataIndex: "namaDealer",
+    title: "Stock",
+    dataIndex: "stock",
     width: 200,
     key: "7",
   },
   {
-    title: "Hasil Screening",
-    dataIndex: "hasilScreening",
+    title: "Brand",
+    dataIndex: "brand",
     key: "8",
   },
   {
@@ -129,129 +129,129 @@ const columns = [
   },
 ];
 
-const data =
-  [
-    {
-      order_id: "2405000852",
-      source_order_desc: "ACQ",
-      branch_code: "0107BEKASI",
-      branch_desc: "BEKASI",
-      application_id: "01072400002387",
-      application_date: "2024/05/14 16:35:36",
-      customer_name: "SKEN KEDUA",
-      alamat: "PRAJA",
-      outlet_channel_desc: "HONDA MITRA JATIASIH",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2405009850",
-      source_order_desc: "MUFSURVEY",
-      branch_code: "0103",
-      branch_desc: "DUREN TIGA",
-      application_id: "01032400007347",
-      application_date: "2024/05/06 11:54:32",
-      customer_name: "BAIDI NUMAN",
-      alamat: "JL MAWAR 4 NO 35",
-      outlet_channel_desc: "",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2404043089",
-      source_order_desc: "MUFSURVEY",
-      branch_code: "0405",
-      branch_desc: "KEDIRI",
-      application_id: "04052400006282",
-      application_date: "2024/04/16 06:20:27",
-      customer_name: "WAHYU PUJI ASTUTIK",
-      alamat: "JL SEMERU 7",
-      outlet_channel_desc: "",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2403131699",
-      source_order_desc: "MUFSURVEY",
-      branch_code: "0501",
-      branch_desc: "DENPASAR",
-      application_id: "05012400006118",
-      application_date: "2024/03/30 14:03:42",
-      customer_name: "I WAYAN AGUS SUPRIADA",
-      alamat: "JL AHMAD YANI GG BEBEK NO 6 PEGUYANAGAN",
-      outlet_channel_desc: "JEPANG MOTOR",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2403000410",
-      source_order_desc: "MUFSURVEY",
-      branch_code: "0107",
-      branch_desc: "BEKASI",
-      application_id: "01072400001620",
-      application_date: "2024/03/26 12:40:55",
-      customer_name: "BINTANG",
-      alamat: "TSB 2",
-      outlet_channel_desc: "PT BEKASI MOTOR",
-      screening_2: "INSTANT APPROVAL",
-    },
-    {
-      order_id: "2403000321",
-      source_order_desc: "ACQ",
-      branch_code: "0107",
-      branch_desc: "BEKASI",
-      application_id: "01072400001502",
-      application_date: "2024/03/21 17:16:25",
-      customer_name: "NAMA SESUAI KTP ELLA",
-      alamat: "ALAMAT KTP ELLA",
-      outlet_channel_desc: "CV SAHABAT MOTOR",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2403000321",
-      source_order_desc: "ACQ",
-      branch_code: "0107",
-      branch_desc: "BEKASI",
-      application_id: "01072400001501",
-      application_date: "2024/03/21 17:16:25",
-      customer_name: "NAMA SESUAI KTP ELLA",
-      alamat: "ALAMAT KTP ELLA",
-      outlet_channel_desc: "CV SAHABAT MOTOR",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2403088458",
-      source_order_desc: "MUFSURVEY",
-      branch_code: "0107",
-      branch_desc: "BEKASI",
-      application_id: "01072400004593",
-      application_date: "2024/03/21 09:03:34",
-      customer_name: "AFIF ZULKARNAEN",
-      alamat: "PONDOK CIPTA BLOK G 49",
-      outlet_channel_desc: "BSI KCP BEKASI JATIASIH",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2403000222",
-      source_order_desc: "ACQ",
-      branch_code: "0107",
-      branch_desc: "BEKASI",
-      application_id: "01072400001408",
-      application_date: "2024/03/19 10:37:33",
-      customer_name: "SITO RESMI",
-      alamat: "JL TESTING NO 11",
-      outlet_channel_desc: "",
-      screening_2: "REGULER SURVEY",
-    },
-    {
-      order_id: "2403000210",
-      source_order_desc: "ACQ",
-      branch_code: "0107",
-      branch_desc: "BEKASI",
-      application_id: "01072400001385",
-      application_date: "2024/03/18 15:15:31",
-      customer_name: "RITA SARI TEST ABDIL",
-      alamat: "JALAN MINGGU",
-      outlet_channel_desc: "AUTO 2000 - JATI ASIH",
-      screening_2: "REGULER SURVEY",
-    },
-  ] || "";
+// const data =
+//   [
+//     {
+//       order_id: "2405000852",
+//       source_order_desc: "ACQ",
+//       branch_code: "0107BEKASI",
+//       branch_desc: "BEKASI",
+//       application_id: "01072400002387",
+//       application_date: "2024/05/14 16:35:36",
+//       customer_name: "SKEN KEDUA",
+//       alamat: "PRAJA",
+//       outlet_channel_desc: "HONDA MITRA JATIASIH",
+//       screening_2: "REGULER SURVEY",
+//     },
+    // {
+    //   order_id: "2405009850",
+    //   source_order_desc: "MUFSURVEY",
+    //   branch_code: "0103",
+    //   branch_desc: "DUREN TIGA",
+    //   application_id: "01032400007347",
+    //   application_date: "2024/05/06 11:54:32",
+    //   customer_name: "BAIDI NUMAN",
+    //   alamat: "JL MAWAR 4 NO 35",
+    //   outlet_channel_desc: "",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2404043089",
+    //   source_order_desc: "MUFSURVEY",
+    //   branch_code: "0405",
+    //   branch_desc: "KEDIRI",
+    //   application_id: "04052400006282",
+    //   application_date: "2024/04/16 06:20:27",
+    //   customer_name: "WAHYU PUJI ASTUTIK",
+    //   alamat: "JL SEMERU 7",
+    //   outlet_channel_desc: "",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2403131699",
+    //   source_order_desc: "MUFSURVEY",
+    //   branch_code: "0501",
+    //   branch_desc: "DENPASAR",
+    //   application_id: "05012400006118",
+    //   application_date: "2024/03/30 14:03:42",
+    //   customer_name: "I WAYAN AGUS SUPRIADA",
+    //   alamat: "JL AHMAD YANI GG BEBEK NO 6 PEGUYANAGAN",
+    //   outlet_channel_desc: "JEPANG MOTOR",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2403000410",
+    //   source_order_desc: "MUFSURVEY",
+    //   branch_code: "0107",
+    //   branch_desc: "BEKASI",
+    //   application_id: "01072400001620",
+    //   application_date: "2024/03/26 12:40:55",
+    //   customer_name: "BINTANG",
+    //   alamat: "TSB 2",
+    //   outlet_channel_desc: "PT BEKASI MOTOR",
+    //   screening_2: "INSTANT APPROVAL",
+    // },
+    // {
+    //   order_id: "2403000321",
+    //   source_order_desc: "ACQ",
+    //   branch_code: "0107",
+    //   branch_desc: "BEKASI",
+    //   application_id: "01072400001502",
+    //   application_date: "2024/03/21 17:16:25",
+    //   customer_name: "NAMA SESUAI KTP ELLA",
+    //   alamat: "ALAMAT KTP ELLA",
+    //   outlet_channel_desc: "CV SAHABAT MOTOR",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2403000321",
+    //   source_order_desc: "ACQ",
+    //   branch_code: "0107",
+    //   branch_desc: "BEKASI",
+    //   application_id: "01072400001501",
+    //   application_date: "2024/03/21 17:16:25",
+    //   customer_name: "NAMA SESUAI KTP ELLA",
+    //   alamat: "ALAMAT KTP ELLA",
+    //   outlet_channel_desc: "CV SAHABAT MOTOR",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2403088458",
+    //   source_order_desc: "MUFSURVEY",
+    //   branch_code: "0107",
+    //   branch_desc: "BEKASI",
+    //   application_id: "01072400004593",
+    //   application_date: "2024/03/21 09:03:34",
+    //   customer_name: "AFIF ZULKARNAEN",
+    //   alamat: "PONDOK CIPTA BLOK G 49",
+    //   outlet_channel_desc: "BSI KCP BEKASI JATIASIH",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2403000222",
+    //   source_order_desc: "ACQ",
+    //   branch_code: "0107",
+    //   branch_desc: "BEKASI",
+    //   application_id: "01072400001408",
+    //   application_date: "2024/03/19 10:37:33",
+    //   customer_name: "SITO RESMI",
+    //   alamat: "JL TESTING NO 11",
+    //   outlet_channel_desc: "",
+    //   screening_2: "REGULER SURVEY",
+    // },
+    // {
+    //   order_id: "2403000210",
+    //   source_order_desc: "ACQ",
+    //   branch_code: "0107",
+    //   branch_desc: "BEKASI",
+    //   application_id: "01072400001385",
+    //   application_date: "2024/03/18 15:15:31",
+    //   customer_name: "RITA SARI TEST ABDIL",
+    //   alamat: "JALAN MINGGU",
+    //   outlet_channel_desc: "AUTO 2000 - JATI ASIH",
+    //   screening_2: "REGULER SURVEY",
+    // },
+  // ] || "";
 
 // const datas = JSON.stringify(data);
 const Index = ({ token }) => {
@@ -269,17 +269,16 @@ const Index = ({ token }) => {
 
   // const roleJobs = useApprovalRoleJob();
   // const appType = useApplicationType();
-  // const dispatch = useDispatch();
-  // const [page, setPage] = useState(1);
-  // const [size, setSize] = useState(10);
-  // const [total, setTotal] = useState(true);
-  //   const [loading, setLoading] = useState(false);
-  const loading = false;
+  const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(10);
+  const [total, setTotal] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [values, setValues] = useState();
+  // const loading = false;
   // const [closeApp, setCloseApp] = useState(true);
   // const [selectorReset, setSelectorReset] = useState(false);
   const selectorReset = false;
-
-  // const [values, setValues] = useState({ approval_flag, branch_code });
   // const [dateVal, setDateVal] = useState([]);
 
   // const [noCloseAplikasi, setNoCloseAplikasi] = useState("");
@@ -295,26 +294,38 @@ const Index = ({ token }) => {
   // const [endOpen, setEndOpen] = useState(false);
 
   // const data = useSelector((state) => state.data);
-  const rows = data?.map((row) => ({
-    orderId: row.order_id,
-    sourceOrder: row.source_order_desc,
-    cabang:
-      (row.branch_code ? row.branch_code : "") +
-      " - " +
-      (row.branch_desc ? row.branch_desc : ""),
-    noAplikasi: row.application_id,
-    tanggalAplikasi: row.application_date
-      ? dateParser(row.application_date, row.order_id)
-      : "",
-    namaDebitur: row.customer_name,
-    alamatDomisili: row.alamat,
-    namaDealer: row.outlet_channel_desc,
-    hasilScreening: row.screening_2,
+  // const rows = data?.map((row) => ({
+  //   orderId: row.order_id,
+  //   sourceOrder: row.source_order_desc,
+  //   cabang:
+  //     (row.branch_code ? row.branch_code : "") +
+  //     " - " +
+  //     (row.branch_desc ? row.branch_desc : ""),
+  //   noAplikasi: row.application_id,
+  //   tanggalAplikasi: row.application_date
+  //     ? dateParser(row.application_date, row.order_id)
+  //     : "",
+  //   namaDebitur: row.customer_name,
+  //   alamatDomisili: row.alamat,
+  //   namaDealer: row.outlet_channel_desc,
+  //   hasilScreening: row.screening_2,
+  // }));
+  
+	const data = useSelector((state) => state.data);
+  const rows = data?.products?.products.map((row) => ({
+    id: row.id,
+    title: row.title,
+    description:row.description,
+    price: row.price,
+    discountPercentage: row.discountPercentage,
+    rating: row.rating,
+    stock: row.stock,
+    brand: row.brand,
+    category: row.category,
   }));
 
   console.log("data", data);
-  console.log("rows", rows);
-
+  console.log("rows", values);
   // const screeningList = [
   // 	{ label: "INSTANT APPROVAL", value: "INSTANT APPROVAL" },
   // 	{ label: "NON IA – TELE SURVEY", value: "TELE SURVEY" },
@@ -323,34 +334,30 @@ const Index = ({ token }) => {
   // ];
 
   const fetchData = async () => {
-    // data.push(
-    // );
-    // console.log("data", data);
-    // try {
-    // 	setPage(1);
-    // 	setSize(10);
-    // 	setTotal(true);
-    // 	values.page = 1;
-    // 	values.size = 10;
-    // 	setLoading(true);
-    // 	if (selectBranches || branches[0]) {
-    // 		await dispatch(
-    // 			await actionFetchApprovalData({
-    // 				...values,
-    // 			})
-    // 		);
-    // 	} else {
-    // 		showError("Filter Cabang harus dipilih!");
-    // 	}
-    // 	dispatch(setMarital(null));
-    // 	dispatch(setFlagTagih(null));
-    // 	dispatch(setKtpDomisili(false));
-    // 	dispatch(setKtpDomisiliData({}));
-    // 	dispatch(setFlagJoinIncome(null));
-    // 	ApplicationStorage.value = {};
-    // } finally {
-    // 	setLoading(false);
-    // }
+    // data.push();
+    console.log("data", data);
+    try {
+    	setPage(1);
+    	setSize(10);
+    	setTotal(true);
+    	// values.page = 1;
+    	// values.size = 10; 
+    	setLoading(true);
+      await dispatch(
+      await actionFetchApprovalData());
+    	// if (selectBranches || branches[0]) {
+    	// } else {
+    	// 	showError("Filter Cabang harus dipilih!");
+    	// }
+    	// dispatch(setMarital(null));
+    	// dispatch(setFlagTagih(null));
+    	// dispatch(setKtpDomisili(false));
+    	// dispatch(setKtpDomisiliData({}));
+    	// dispatch(setFlagJoinIncome(null));
+    	// ApplicationStorage.value = {};
+    } finally {
+    	setLoading(false);
+    }
   };
 
   // const handleBranchChange = (value) => {
@@ -426,12 +433,12 @@ const Index = ({ token }) => {
 
   // first load
   useEffect(() => {
-    // fetchData();
+    fetchData();
     // data.push(
 
     // );
-    console.log(rows);
-  }, [rows]);
+    // console.log(rows);
+  }, []);
 
   // // on reset clicked
   // // useEffect(() => {
@@ -505,7 +512,7 @@ const Index = ({ token }) => {
           <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
             <Input
               //   disabled={!closeApp}
-              placeholder="Nomor Aplikasi"
+              placeholder="Sample Field"
               //   onChange={handleApplicationIdChange}
               //   value={noApplikasi}
               //   onKeyPress={allowOnlyNumber}
@@ -525,7 +532,7 @@ const Index = ({ token }) => {
               >
                 <DatePicker
                   //   disabled={!closeApp}
-                  placeholder="Awal Periode Aplikasi"
+                  placeholder="Sample Date Picker"
                   //   disabledDate={disabledStartDate}
                   //   onChange={onStartChange}
                   //   value={startValue}
@@ -541,7 +548,7 @@ const Index = ({ token }) => {
               >
                 <DatePicker
                   //   disabled={!closeApp}
-                  placeholder="Akhir Periode Aplikasi"
+                  placeholder="Sample Date Picker"
                   //   disabledDate={disabledEndDate}
                   //   onChange={onEndChange}
                   //   value={endValue}
@@ -553,7 +560,7 @@ const Index = ({ token }) => {
           <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
             <Input
               //   disabled={!closeApp}
-              placeholder="Nama Debitur"
+              placeholder="Sample Field"
               //   onChange={handleDebiturChange}
               //   value={debitur}
             />
@@ -564,7 +571,7 @@ const Index = ({ token }) => {
             <Select
               //   disabled={!closeApp}
               suffixIcon={<CaretDownOutlined />}
-              placeholder="Hasil Screening"
+              placeholder="Sample Drop Down"
               //   value={selectScreenings}
               //   options={screeningList}
               //   onChange={handleScreeningChange}
@@ -617,7 +624,7 @@ const Index = ({ token }) => {
               renderItem={(item) => (
                 <Card
                   className={classes.wrapperListData}
-                  title="Return to Revise"
+                  title="Sample"
                   headStyle={{
                     backgroundColor: "#003d79",
                     color: "white",

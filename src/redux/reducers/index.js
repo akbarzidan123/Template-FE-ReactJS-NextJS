@@ -1,13 +1,16 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { combineReducers } from "redux";
 import auth, { initialState as authInitial } from "./auth";
+import data, { initialState as dataInitial } from "./data";
 
 export const initialState = {
   auth: authInitial,
+  data: dataInitial,
 };
 
 const appReducer = combineReducers({
   auth,
+  data,
 });
 
 const reducers = (state, action) => {
