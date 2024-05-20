@@ -3,8 +3,12 @@ import Storage from './storage';
 class IdStorage extends Storage {
 	
 	get data() {
-		if(this.value && this.value.length > 2) return this.value;
-		return null;
+		console.log(this.value)
+		if(this.value > 0) {
+			return this.value;
+		} else {
+			return null;
+		}
 	}
 }
 

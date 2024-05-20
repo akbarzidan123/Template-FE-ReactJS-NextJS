@@ -56,16 +56,17 @@ const INPUT_STYLE = {
 
 const redirect = (_data) => {
   IdStorage.value = _data.id;
+  console.log('test data', _data)
   window.location.reload(false);
 };
 
 const columns = [
-  {
-    title: "ID",
-    dataIndex: "id",
-    width: "150px",
-    key: "1",
-  },
+  // {
+  //   title: "ID",
+  //   dataIndex: "id",
+  //   width: "150px",
+  //   key: "1",
+  // },
   {
     title: "Judul",
     dataIndex: "title",
