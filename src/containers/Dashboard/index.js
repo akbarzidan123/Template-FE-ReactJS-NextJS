@@ -55,7 +55,7 @@ const INPUT_STYLE = {
 };
 
 const redirect = (_data) => {
-  IdStorage.value = _data.orderId;
+  IdStorage.value = _data.id;
   window.location.reload(false);
 };
 
@@ -107,7 +107,7 @@ const columns = [
   },
   {
     title: "Aksi",
-    key: "orderId",
+    key: "id",
     fixed: "right",
     width: 50,
     render: (_data) => (
