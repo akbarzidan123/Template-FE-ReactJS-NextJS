@@ -18,3 +18,20 @@ export const actionFetchApprovalData = async (payload = {}, next = (f) => f) => 
 		},
 	};
 };
+
+export const actionFetchDataById = async ( id, payload = {}, next = (f) => f) => {
+	const idStr = String(id);
+	let url = AUTH_DUMMY + `/products/${idStr}`;
+	return {
+		type: SINGLE_API,
+		payload: {
+			url,
+			options: { method: "GET" },
+			payload,
+			successType: "GET_PRODUCTS_ID_SUCCESS",
+			next: async (err, response = {}) => {
+				next(err, response);
+			},
+		},
+	};
+};

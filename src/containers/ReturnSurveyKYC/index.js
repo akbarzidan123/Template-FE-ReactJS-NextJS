@@ -34,6 +34,7 @@ import {
 // } from "src/redux/actions/config";
 // Containers
 import ApplicationDetail from "src/containers/ReturnSurveyKYC/ApplicationDetail";
+import {actionFetchDataById} from "src/redux/actions/data";
 
 // utils
 // import {
@@ -119,7 +120,7 @@ const subtabs = [
 ];
 
 const ReturnSurveyKYC = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   //   const state = useSelector((state) => state.debitur);
   const id = IdStorage.data;
   const [loading, setLoading] = useState(false);
@@ -143,7 +144,7 @@ const ReturnSurveyKYC = () => {
     { title: "Sub Tab", dataIndex: "subTab", key: "subTab" },
   ];
 
-  //   const application = applicationStorage.data;
+  //  const application = applicationStorage.data;
   //   const { detail } = application || {};
   //   const { telesurvey, silentsurvey, reguler_survey } = detail || {};
   //   const { debitur, object_pembiayaan, identitas_order } = detail || {};
@@ -164,33 +165,102 @@ const ReturnSurveyKYC = () => {
     window.location.reload(false);
   };
 
-  const dataTest = {
-    application_id: "2403000222",
-    application_date: "2024/03/21 09:03:34",
-    nama_ktp: "Zeus Dev",
-    source_order_desc: "REGULER SURVEY",
-    applicant_type_desc: "RESMI",
-    cabang: "0107 - BEKASI",
-    approval_history: [
-      {
-        // "level_approver": 1,
-        // "result": "RTDE1",
-        // "result_desc": "RETURN TO DATA ENTRY",
-        // "nik": "16000816",
-        // "jobCode": "121",
-        // "name": "ADAM",
-        // "date": "2024-05-15 14:22:51",
-        // "watchlist": "",
-        note: "Tiba - tiba Aku Melayang",
-      },
-    ],
-  };
+  const dataId = useSelector((state) => state.dataId);
+  const products = dataId?.products?.products;
+  console.log("data", dataId);
+
+  const fetchData = async () => {
+		try {
+			setLoading(true);
+			await dispatch(
+			await actionFetchDataById(id));
+			// let app = applicationStorage.data;
+			// const { products } = app;
+			// const { debitur } = detail;
+			// const { personal } = debitur;
+			// const { occupation } = personal;
+			// const { debitur: debitur_occ } = occupation;
+			// const { debitur_occupation_id, debitur_company_type_code } =
+			// 	debitur_occ;
+			// console.log(debitur_position_id);
+			//New
+			// dispatch(await fetchPekerjaanNasabah());
+			// dispatch(await actionGetPekerjaanPasDebitur());
+			// dispatch(await actionGetStatusPegawaiNew());
+			// dispatch(await actionGetStatusLokasiNew());
+			// dispatch(await actionGetLokasiUsahaNew());
+			// dispatch(
+			// 	await actionGetJenisTempatNew({
+			// 		pekerjaan_code: debitur_occupation_id,
+			// 	})
+			// );
+			// dispatch(
+			// 	await actionGetJabatanBidangUsaha({
+			// 		pekerjaan_code: debitur_occupation_id,
+			// 		jenis_tempat_code: debitur_company_type_code,
+			// 	})
+			// );
+			// End New
+
+			// dispatch(await actionGetPekerjaanNasabah());
+			// dispatch(await actionGetStatusPegawai());
+			// dispatch(await actionGetTempatBekerja());
+			// dispatch(await actionGetJabatan());
+			// dispatch(await actionGetStatusLokasi());
+			// dispatch(await actionGetLokasiUsaha());
+			// dispatch(await actionFetchDocumentAll()).then((res) => {
+			// 	getAllDocNull(res);
+			// });
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(async () => {
+		fetchData({id: id});
+	}, [id]);
+
+  // const dataTest = {
+  //   application_id: "2403000222",
+  //   application_date: "2024/03/21 09:03:34",
+  //   nama_ktp: "Zeus Dev",
+  //   source_order_desc: "REGULER SURVEY",
+  //   applicant_type_desc: "RESMI",
+  //   cabang: "0107 - BEKASI",
+  //   approval_history: [
+  //     {
+  //       // "level_approver": 1,
+  //       // "result": "RTDE1",
+  //       // "result_desc": "RETURN TO DATA ENTRY",
+  //       // "nik": "16000816",
+  //       // "jobCode": "121",
+  //       // "name": "ADAM",
+  //       // "date": "2024-05-15 14:22:51",
+  //       // "watchlist": "",
+  //       note: "Tiba - tiba Aku Melayang",
+  //     },
+  //   ],
+  // };
+
+  useEffect(() => {
+    console.log('data id', localStorage.getItem("ORDERID"))
+  }, [])
+  
+  // console.log('id berapa', id)
+  // console.log('apa ini?', IdStorage.value)
+  // console.log('huh', ApplicationStorage.value)
+
+  // const test = (_data) => {
+  //   IdStorage.value = _data.id;
+  //   console.log('test data', _data)
+  //   window.location.reload(false);
+  // };
 
   return (
     <Form layout="vertical">
       {!loading ? (
         <>
-          <ApplicationDetail application={dataTest} personal={dataTest} />
+          <ApplicationDetail application={dataId} personal={dataId} />
           <CollapseForm
             tabs={tabs}
             // subtabs={subtabs}

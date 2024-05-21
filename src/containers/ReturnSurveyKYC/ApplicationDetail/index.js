@@ -12,6 +12,7 @@ const ApplicationDetail = (props) => {
   const { TextArea } = Input;
 
   const { application, personal } = props || {};
+  // console.log('application nya apa?', application)
 
   // //detail.debitur.personal
   // const { debitur_nama_sesuai_ktp } = personal || {}
@@ -81,16 +82,16 @@ const ApplicationDetail = (props) => {
       <Form layout="vertical">
         <Row gutter={12}>
           <Col md={12} xs={24}>
-            <Form.Item label="No Aplikasi" name="application_id">
+            <Form.Item label="ID" name="id">
               <Input
                 readOnly
                 onInput={toInputUppercase}
-                defaultValue={application?.application_id}
+                defaultValue={application?.products?.id}
               />
             </Form.Item>
           </Col>
           <Col md={12} xs={24}>
-            <Form.Item label="Tanggal Aplikasi">
+            <Form.Item label="Date">
               <Input
                 readOnly
                 onInput={toInputUppercase}
@@ -104,52 +105,52 @@ const ApplicationDetail = (props) => {
         </Row>
         <Row gutter={12}>
           <Col md={12} xs={24}>
-            <Form.Item label="Nama Sesuai KTP">
+            <Form.Item label="Category" name='category'>
               <Input
                 onInput={toInputUppercase}
-                defaultValue={application?.nama_ktp}
+                defaultValue={application?.products?.category}
                 readOnly
               />
             </Form.Item>
           </Col>
           <Col md={12} xs={24}>
-            <Form.Item label="Source Order" name="source_order_desc">
+            <Form.Item label="Brand" name="brand">
               <Input
                 readOnly
                 onInput={toInputUppercase}
-                defaultValue={application?.source_order_desc}
+                defaultValue={application?.products?.brand}
               />
             </Form.Item>
           </Col>
         </Row>
         <Row gutter={12}>
           <Col md={12} xs={24}>
-            <Form.Item label="Tipe Nasabah" name="applicant_type_desc">
+            <Form.Item label="Title" name="title">
               <Input
                 readOnly
                 onInput={toInputUppercase}
-                defaultValue={application?.applicant_type_desc}
+                defaultValue={application?.products?.title}
               />
             </Form.Item>
           </Col>
           <Col md={12} xs={24}>
-            <Form.Item label="Cabang" name="branch_desc">
+            <Form.Item label="Price" name="price">
               <Input
                 readOnly
                 onInput={toInputUppercase}
-                defaultValue={application?.cabang}
+                defaultValue={application?.products?.price}
               />
             </Form.Item>
           </Col>
         </Row>
         <Row gutter={24}>
           <Col md={24} xs={24}>
-            <Form.Item label="Approval Notes" name="note">
+            <Form.Item label="Description" name="description">
               <TextArea
                 disabled={true}
                 rows={4}
                 className={classes.textarea}
-                defaultValue={approvalNotes}
+                defaultValue={application?.products?.description}
               />
             </Form.Item>
           </Col>
