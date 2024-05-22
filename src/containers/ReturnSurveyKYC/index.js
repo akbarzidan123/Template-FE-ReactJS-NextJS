@@ -165,9 +165,9 @@ const ReturnSurveyKYC = () => {
     window.location.reload(false);
   };
 
-  const dataId = useSelector((state) => state.dataId);
-  const products = dataId?.products?.products;
-  console.log("data", dataId);
+  const data = useSelector((state) => state.data);
+  const products = data?.products?.products;
+  console.log("data", data);
 
   const fetchData = async () => {
 		try {
@@ -260,7 +260,7 @@ const ReturnSurveyKYC = () => {
     <Form layout="vertical">
       {!loading ? (
         <>
-          <ApplicationDetail application={dataId} personal={dataId} />
+          <ApplicationDetail application={data} personal={data} />
           <CollapseForm
             tabs={tabs}
             // subtabs={subtabs}
