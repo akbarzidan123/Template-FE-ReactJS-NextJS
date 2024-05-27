@@ -51,7 +51,7 @@ import {actionFetchDataById} from "src/redux/actions/data";
 // } from "src/redux/actions/config";
 // import { actionFetchDocumentAll } from "src/redux/actions/document";
 // import { getAllDocNull, setDocImg } from "src/hooks/getAllDocNull";
-// import ApplicationStorage from "src/utils/application-storage";
+import ApplicationStorage from "src/utils/application-storage";
 // import authStorage from "src/utils/auth-storage";
 import IdStorage from "src/utils/id-storage";
 // import { checkRtreMandatory, timeout, intermittenRtre } from "src/utils/tools";
@@ -144,8 +144,8 @@ const ReturnSurveyKYC = () => {
     { title: "Sub Tab", dataIndex: "subTab", key: "subTab" },
   ];
 
-  //  const application = applicationStorage.data;
-  //   const { detail } = application || {};
+   const application = applicationStorage.data;
+  // const { detail } = application || {};
   //   const { telesurvey, silentsurvey, reguler_survey } = detail || {};
   //   const { debitur, object_pembiayaan, identitas_order } = detail || {};
   //   const { personal } = debitur || {};
@@ -162,11 +162,13 @@ const ReturnSurveyKYC = () => {
 
   const backToDashboard = () => {
     IdStorage.value = {};
+    ApplicationStorage.value = {};
     window.location.reload(false);
   };
 
   const data = useSelector((state) => state.data);
   const products = data?.products?.products;
+  ApplicationStorage.value = data
   console.log("data", data);
 
   const fetchData = async () => {
