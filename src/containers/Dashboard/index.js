@@ -30,7 +30,7 @@ import Title from "src/components/Title";
 // import ApplicationStorage from "src/utils/application-storage";
 
 // // Actions
-import { actionFetchApprovalData } from "src/redux/actions/data";
+import { actionFetchApprovalData, actionSearchData } from "src/redux/actions/data";
 // import {
 //   setFlagJoinIncome,
 //   setFlagTagih,
@@ -284,6 +284,7 @@ const Index = ({ token }) => {
 
   // const [noCloseAplikasi, setNoCloseAplikasi] = useState("");
   // const [noApplikasi, setNoApplikasi] = useState("");
+  const [query, setQuery] = useState("");
   // const [debitur, setDebitur] = useState("");
   // const [selectScreenings, setSelectScreenings] = useState(null);
   // const [selectBranches, setSelectBranches] = useState(null);
@@ -342,7 +343,7 @@ const Index = ({ token }) => {
     	setSize(10);
     	setTotal(true);
     	// values.page = 1;
-    	// values.size = 10; 
+    	// values.size = 10;
     	setLoading(true);
       await dispatch(
       await actionFetchApprovalData());
@@ -396,15 +397,33 @@ const Index = ({ token }) => {
   // 	setValues({ ...values, screening: value });
   // };
 
-  // const handleApplicationIdChange = (e) => {
-  // 	setNoApplikasi(e.target.value);
-  // 	if (e.target.value == "") {
-  // 		delete values.application_id;
-  // 		setValues({ ...values });
-  // 	} else {
-  // 		setValues({ ...values, application_id: e.target.value });
-  // 	}
-  // };
+  const handleApplicationSearch = async (e) => {
+    setQuery(e.target.value)
+    // setValues({...data, query: e.target.value})
+    console.log('testing dulu')
+    try {
+    	setPage(1);
+    	setSize(10);
+    	setTotal(true);
+    	// values.page = 1;
+    	// values.size = 10;
+    	// setLoading(true);
+      await dispatch(
+      await actionSearchData(query));
+    	// if (selectBranches || branches[0]) {
+    	// } else {
+    	// 	showError("Filter Cabang harus dipilih!");
+    	// }
+    	// dispatch(setMarital(null));
+    	// dispatch(setFlagTagih(null));
+    	// dispatch(setKtpDomisili(false));
+    	// dispatch(setKtpDomisiliData({}));
+    	// dispatch(setFlagJoinIncome(null));
+    	// ApplicationStorage.value = {};
+    } finally {
+    	console.log('masuk');
+    }
+  };
 
   // const handleDebiturChange = (e) => {
   // 	setDebitur(e.target.value);
@@ -416,21 +435,9 @@ const Index = ({ token }) => {
   // 	}
   // };
 
-  // const resetData = (e) => {
-  // 	setValues({ approval_flag, branch_code });
-  // 	setSelectScreenings(null);
-  // 	setSelectRoles(null);
-  // 	setSelectBranches(null);
-  // 	setStartValue(null);
-  // 	setEndValue(null);
-  // 	setNoApplikasi("");
-  // 	setDebitur("");
-  // 	setDateVal([]);
-  // 	setDataReset(true);
-  // 	setTotal(false);
-  // 	setPage(1);
-  // 	setSize(10);
-  // };
+  const resetData = (e) => {
+  	setQuery("");
+  };
 
   // first load
   useEffect(() => {
@@ -513,9 +520,9 @@ const Index = ({ token }) => {
           <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
             <Input
               //   disabled={!closeApp}
-              placeholder="Sample Field"
-              //   onChange={handleApplicationIdChange}
-              //   value={noApplikasi}
+              placeholder="Cari"
+                onChange={handleApplicationSearch}
+                value={query}
               //   onKeyPress={allowOnlyNumber}
               maxLength="14"
             />
@@ -586,7 +593,7 @@ const Index = ({ token }) => {
               type="secondary"
               shape="round"
               className={classes.button}
-              //   onClick={resetData}
+                onClick={resetData}
             >
               Reset
             </Button>

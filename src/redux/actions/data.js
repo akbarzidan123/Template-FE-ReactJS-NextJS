@@ -35,3 +35,20 @@ export const actionFetchDataById = async ( id, payload = {}, next = (f) => f) =>
 		},
 	};
 };
+
+export const actionSearchData = async ( query, payload = {}, next = (f) => f) => {
+	const tagStr = query || "";
+	let url = AUTH_DUMMY + `/products/search?q=${encodeURIComponent(tagStr)}`;
+	return {
+		type: SINGLE_API,
+		payload: {
+			url,
+			options: { method: "GET" },
+			payload,
+			successType: "GET_SEARCH_PRODUCTS_SUCCESS",
+			next: async (err, response = {}) => {
+				next(err, response);
+			},
+		},
+	};
+};

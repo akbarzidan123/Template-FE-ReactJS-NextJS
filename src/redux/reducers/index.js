@@ -2,18 +2,18 @@ import { HYDRATE } from "next-redux-wrapper";
 import { combineReducers } from "redux";
 import auth, { initialState as authInitial } from "./auth";
 import data, { initialState as dataInitial } from "./data";
-// import dataId, { initialState as dataIdInitial } from "./dataId";
+// import tagSearch, { initialState as tagSearchInitial } from "./search";
 
 export const initialState = {
   auth: authInitial,
   data: dataInitial,
-  // dataId: dataIdInitial,
+  // tagSearch: tagSearchInitial,
 };
 
 const appReducer = combineReducers({
   auth,
   data,
-  // dataId,
+  // tagSearch,
 });
 
 const reducers = (state, action) => {
