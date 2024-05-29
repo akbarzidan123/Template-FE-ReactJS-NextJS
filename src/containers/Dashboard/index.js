@@ -421,7 +421,7 @@ const Index = ({ token }) => {
     	// dispatch(setFlagJoinIncome(null));
     	// ApplicationStorage.value = {};
     } finally {
-    	console.log('masuk');
+    	console.log('cari products');
     }
   };
 
@@ -435,8 +435,14 @@ const Index = ({ token }) => {
   // 	}
   // };
 
-  const resetData = (e) => {
-  	setQuery("");
+  const resetData = async (e) => {
+    setQuery(e.target.value)
+    try {
+      await dispatch(
+      await actionSearchData(""));
+    } finally {
+    	console.log('delete');
+    }
   };
 
   // first load
