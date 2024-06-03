@@ -60,8 +60,8 @@ const Login = ({ token }) => {
       try {
         setLoading(true);
         await dispatch(
-          await actionLoginTest({username: "kminchelle",
-          password: "0lelplR"})
+          await actionLoginTest({username: "emilys",
+          password: "emilyspass"})
         );
       } finally {
         reloadPage();

@@ -35,6 +35,7 @@ import {
 // Containers
 import ApplicationDetail from "src/containers/ReturnSurveyKYC/ApplicationDetail";
 import {actionFetchDataById} from "src/redux/actions/data";
+import { actionGetProductCategoryList } from "src/redux/actions/categorySelector";
 
 // utils
 // import {
@@ -174,8 +175,8 @@ const ReturnSurveyKYC = () => {
   const fetchData = async () => {
 		try {
 			setLoading(true);
-			await dispatch(
-			await actionFetchDataById(id));
+			await dispatch(await actionFetchDataById(id));
+      await dispatch(await actionGetProductCategoryList());
 			// let app = applicationStorage.data;
 			// const { products } = app;
 			// const { debitur } = detail;

@@ -1003,8 +1003,24 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../../styles1/Home.module.css";
+import { Col, DatePicker, Form, Input, Radio, Row, Select } from "antd";
+import ApplicationStorage from "src/utils/application-storage";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function Home() {
+export default function Home(props) {
+
+  const { TextArea } = Input;
+
+  const data = useSelector((state) => state.data);
+  ApplicationStorage.value = data
+  const category = data?.products?.category
+  const brand = data?.products?.brand
+  const price = data?.products?.price
+  const rating = data?.products?.rating
+
+  // console.log('data?', data
+  // console.log('kalo ini apa', data?.products?.brand)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -1019,42 +1035,55 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Contoh Penggunaan Field
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Category"
+						name="category"
+					>
+						<Input
+            defaultValue={category}/>
+					</Form.Item>
+				</Col>
+          <Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Brand"
+						name="brand"
+					>
+					<Input
+          defaultValue={brand}
+          />
+					</Form.Item>
+				  </Col>
+          <Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Price"
+						name="price"
+					>
+					<Input
+          defaultValue={price}
+          readOnly
+          />
+					</Form.Item>
+				  </Col>
+          <Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Rating"
+						name="rating"
+					>
+					<Input
+          defaultValue={rating}
+          disabled
+          />
+					</Form.Item>
+				  </Col>
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -1065,7 +1094,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }

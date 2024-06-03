@@ -1003,8 +1003,32 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../../styles1/Home.module.css";
+import { Col, DatePicker, Form, Input, Radio, Row, Select } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
+
+const categorySelector = useSelector((state) => state.categorySelector);
+console.log('isinya apa ini??', categorySelector)
+console.log(typeof categorySelector) //typeOf = object
+const categoryArray = Object.values(categorySelector)
+
+categoryArray.forEach(item => {
+	console.log('rill kah', item)
+})
+
+if (Array.isArray(categoryArray)) {
+    categoryArray.forEach(item => {
+        console.log('testinggggg', item);
+    });
+} else {
+    console.error('bukan array');
+}
+
+const categoryOptions = Array.isArray(categorySelector)
+    ? categorySelector
+    : Object.entries(categorySelector).map(([key, value]) => ({label: key, value}));
+
   return (
     <div className={styles.container}>
       <Head>
@@ -1019,42 +1043,52 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Contoh Penggunaan Drop Down Menu
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Drop Down 1"
+						name="drop_down_example_1"
+					>
+						<Select
+						options={categoryOptions}
+						/>
+					</Form.Item>
+				</Col>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Drop Down 2"
+						name="drop_down_example_2"
+					>
+						<Select/>
+					</Form.Item>
+				</Col>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Drop Down 3"
+						name="drop_down_example_3"
+					>
+						<Select
+						disabled
+						/>
+					</Form.Item>
+				</Col>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Drop Down 4"
+						name="drop_down_example_4"
+					>
+					<Select
+					disabled
+					/>
+					</Form.Item>
+				</Col>
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -1065,7 +1099,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
