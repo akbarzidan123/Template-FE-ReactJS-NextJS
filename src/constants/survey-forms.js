@@ -27,9 +27,9 @@
 // import DomicileAddressOnly from "src/containers/ReturnSurveyKYC/DomicileAddressOnly";
 // import FiduciaryFeeInfo from "src/containers/ReturnSurveyKYC/FiduciaryFeeInfo";
 // import FinanceStructureInfo from "src/containers/ReturnSurveyKYC/FinanceStructureInfo";
-// import FinancingInfo from "src/containers/ReturnSurveyKYC/FinancingInfo";
+import FinancingInfo from "src/containers/ReturnSurveyKYC/FinancingInfo";
 // Ownership Data
-// import HomeOwnershipInfo from "src/containers/ReturnSurveyKYC/HomeOwnershipInfo";
+import HomeOwnershipInfo from "src/containers/ReturnSurveyKYC/HomeOwnershipInfo";
 // import IdentityExternalSales from "src/containers/ReturnSurveyKYC/IdentityExternalSales";
 import IdentityInfo from "src/containers/ReturnSurveyKYC/IdentityInfo";
 import SubTab1OnTab2 from "src/containers/ReturnSurveyKYC/SubTab1OnTab2";
@@ -79,11 +79,11 @@ import SubTab2OnTab1 from "src/containers/ReturnSurveyKYC/SubTab2OnTab1";
 
 export const CUSTOMER_IDENTITY_FORMS = [
   {
-    header: "Sample Sub Tab 1 On Tab 1",
+    header: "Tab 1 | Sub Tab 1",
     component: IdentityInfo,
   },
   {
-    header: "Sample Sub Tab 2 On Tab 1",
+    header: "Tab 1 | Sub Tab 2",
     component: SubTab2OnTab1,
   },
   //   {
@@ -114,7 +114,7 @@ export const CUSTOMER_IDENTITY_FORMS = [
 
 export const ORDER_IDENTITY_FORMS = [
   {
-    header: "Sample Sub Tab 1 On Tab 2",
+    header: "Tab 2 | Sub Tab 1",
     component: SubTab1OnTab2,
   },
   // {
@@ -131,11 +131,11 @@ export const ORDER_IDENTITY_FORMS = [
   // },
 ];
 
-// export const FINANCING_OBJECT_FORMS = [
-// 	{
-// 		header: "Informasi Object Pembiayaan",
-// 		component: FinancingInfo,
-// 	},
+export const FINANCING_OBJECT_FORMS = [
+	{
+		header: "Tab 3 | Sub Tab 1",
+		component: FinancingInfo,
+	},
 // 	{
 // 		header: "Informasi Supplier",
 // 		component: SupplierInfo,
@@ -180,14 +180,14 @@ export const ORDER_IDENTITY_FORMS = [
 // 		header: "Informasi Refund",
 // 		component: RefundInfo,
 // 	},
-// ];
+];
 
-// export const OWNERSHIP_DATA_FORMS = [
-// 	{
-// 		header: "Informasi Data Kepemilikan Rumah",
-// 		component: HomeOwnershipInfo,
-// 	},
-// ];
+export const OWNERSHIP_DATA_FORMS = [
+	{
+		header: "Tab 4 | Sub Tab 1",
+		component: HomeOwnershipInfo,
+	},
+];
 
 // export const SURVEY_RESULTS_FORMS = [
 // 	{

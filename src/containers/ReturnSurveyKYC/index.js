@@ -21,9 +21,9 @@ import { useDispatch, useSelector } from "react-redux";
 // Constants
 import {
   CUSTOMER_IDENTITY_FORMS,
-  //   FINANCING_OBJECT_FORMS,
+  FINANCING_OBJECT_FORMS,
   ORDER_IDENTITY_FORMS,
-  //   OWNERSHIP_DATA_FORMS,
+  OWNERSHIP_DATA_FORMS,
   //   REGULER_SURVEY_FORMS,
   //   SILENT_SURVEY_FORMS,
   //   TELE_SURVEY_FORMS,
@@ -88,18 +88,18 @@ const tabs = [
     tab: "Sample Tab 2",
     collapses: ORDER_IDENTITY_FORMS,
   },
-  //   {
-  //     tab: "Object Pembiayaan",
-  //     collapses: FINANCING_OBJECT_FORMS,
-  //   },
-  //   {
-  //     tab: "Data Kepemilikan",
-  //     collapses: OWNERSHIP_DATA_FORMS,
-  //   },
-  //   {
-  //     tab: "Hasil Survey",
-  //     collapses: [],
-  //   },
+  {
+    tab: "Sample Tab 3",
+    collapses: FINANCING_OBJECT_FORMS,
+  },
+  {
+    tab: "Sample Tab 4",
+    collapses: OWNERSHIP_DATA_FORMS,
+  },
+  // {
+  //   tab: "Hasil Survey",
+  //   collapses: [],
+  // },
 ];
 
 const subtabs = [
