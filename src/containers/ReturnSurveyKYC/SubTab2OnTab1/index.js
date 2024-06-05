@@ -1005,6 +1005,7 @@ import Image from "next/image";
 import styles from "../../../styles1/Home.module.css";
 import { Col, DatePicker, Form, Input, Radio, Row, Select } from "antd";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 export default function Home() {
 
@@ -1012,22 +1013,26 @@ const categorySelector = useSelector((state) => state.categorySelector);
 console.log('isinya apa ini??', categorySelector)
 console.log(typeof categorySelector) //typeOf = object
 const categoryArray = Object.values(categorySelector)
+const categoryData = categorySelector && Array.isArray(categorySelector.category)
+const [categoryOptions, setCategoryOptions] = useState([]);
 
-categoryArray.forEach(item => {
-	console.log('rill kah', item)
-})
-
-if (Array.isArray(categoryArray)) {
-    categoryArray.forEach(item => {
-        console.log('testinggggg', item);
-    });
-} else {
-    console.error('bukan array');
-}
-
-const categoryOptions = Array.isArray(categorySelector)
-    ? categorySelector
-    : Object.entries(categorySelector).map(([key, value]) => ({label: key, value}));
+useEffect(() => {
+	if(categorySelector && Array.isArray(categorySelector.category)){
+		categorySelector.category.forEach((item, index) => {
+			console.log(`Item ${index}`, item)
+		})
+	
+		const options = categorySelector.category.map((category) => ({
+			label: category,
+			value: category
+		}));
+	
+		console.log('Category Options = ', options)
+		setCategoryOptions(options)
+	} else {
+		console.error('Category Error')
+	}
+}, [categorySelector])
 
   return (
     <div className={styles.container}>
