@@ -1012,8 +1012,6 @@ export default function Home() {
 const categorySelector = useSelector((state) => state.categorySelector);
 console.log('isinya apa ini??', categorySelector)
 console.log(typeof categorySelector) //typeOf = object
-const categoryArray = Object.values(categorySelector)
-const categoryData = categorySelector && Array.isArray(categorySelector.category)
 const [categoryOptions, setCategoryOptions] = useState([]);
 
 useEffect(() => {
@@ -1023,7 +1021,6 @@ useEffect(() => {
 		})
 	
 		const options = categorySelector.category.map((category) => ({
-			label: category,
 			value: category
 		}));
 	
