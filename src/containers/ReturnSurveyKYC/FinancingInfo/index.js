@@ -1,8 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../../styles1/Home.module.css";
+import { Col, DatePicker, Form, Input, Radio, Row, Select } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,42 +21,114 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Contoh Penggunaan Radio Button
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Radio Button 1"
+						name="radio_example_1"
+					>
+					<Radio.Group
+								>
+								<Radio
+										value={'YA'}
+								>
+										<span>
+											Ya
+										</span>
+								</Radio>
+								<Radio
+										value={'TIDAK'}
+									>
+										<span>
+											Tidak
+										</span>
+								</Radio>
+							</Radio.Group>			
+          </Form.Item>
+				</Col>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Radio Button 2"
+						name="radio_example_2"
+					>
+					<Radio.Group
+								>
+								<Radio
+										value={'YA'}
+								>
+										<span>
+											Ya
+										</span>
+								</Radio>
+								<Radio
+										value={'TIDAK'}
+									>
+										<span>
+											Tidak
+										</span>
+								</Radio>
+							</Radio.Group>
+					</Form.Item>
+				</Col>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Radio Button 3"
+						name="radio_example_3"
+					>
+					<Radio.Group
+          disabled
+          defaultValue={'YA'}
+								>
+								<Radio
+										value={'YA'}
+								>
+										<span>
+											Ya
+										</span>
+								</Radio>
+								<Radio
+										value={'TIDAK'}
+									>
+										<span>
+											Tidak
+										</span>
+								</Radio>
+							</Radio.Group>
+					</Form.Item>
+				</Col>
+				<Col md={30} xs={30} style={{marginRight: '20px'}}>
+					<Form.Item
+						label="Contoh Radio Button 4"
+						name="radio_example_4"
+					>
+					<Radio.Group
+          disabled
+          defaultValue={'TIDAK'}
+								>
+								<Radio
+										value={'YA'}
+								>
+										<span>
+											Yes
+										</span>
+								</Radio>
+								<Radio
+										value={'TIDAK'}
+									>
+										<span>
+											No
+										</span>
+								</Radio>
+							</Radio.Group>
+					</Form.Item>
+				</Col>
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -63,7 +139,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { BackTop, Layout } from "antd";
+import { BackTop, Layout, Switch } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,6 +17,7 @@ import ArrowLeftIcon from "public/svg/arrow-left.svg";
 import { ROUTES, SUB_ROUTES } from "src/constants/routes";
 // style
 import classes from "./style.module.less";
+import { useEffect, useState } from "react";
 
 // Data
 const { Content } = Layout;
@@ -34,13 +35,27 @@ const MainLayout = (props) => {
   const { query, asPath } = useRouter();
   const [, token, params] = asPath.split("/");
 
+  // const [darkMode, setDarkMode] = useState(false);
+
+  // useEffect(() => {
+  //   if (darkMode){
+  //     document.body.classList.add('dark-mode')
+  //   } else {
+  //     document.body.classList.remove('dark-mode')
+  //   }
+  // }, [darkMode])
+
+  // const toggleDarkMode = () => {
+  //   setDarkMode(!darkMode)
+  // }
+
   return (
     <>
       <Layout
         style={{
           minHeight: "100vh",
         }}
-        className={classes.root}
+        // className={`${classes.root} ${darkMode ? 'dark-mode' : ''}`}
       >
         {!token && (
           <>
@@ -63,6 +78,13 @@ const MainLayout = (props) => {
                   <AvatarDropDown />
                 </div>
               )}
+              <Switch 
+              checkedChildren='Dark'
+              unCheckedChildren='Light'
+              // onChange={toggleDarkMode}
+              // checked={darkMode}
+              // className="classes.darkModeToggle"
+              />
             </Header>
           </>
         )}
