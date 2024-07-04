@@ -79,11 +79,11 @@ import SubTab2OnTab1 from "src/containers/ReturnSurveyKYC/SubTab2OnTab1";
 
 export const CUSTOMER_IDENTITY_FORMS = [
   {
-    header: "Tab 1 | Sub Tab 1",
+    header: "Input Text",
     component: IdentityInfo,
   },
   {
-    header: "Tab 1 | Sub Tab 2",
+    header: "Drop Down",
     component: SubTab2OnTab1,
   },
   //   {
@@ -114,7 +114,7 @@ export const CUSTOMER_IDENTITY_FORMS = [
 
 export const ORDER_IDENTITY_FORMS = [
   {
-    header: "Tab 2 | Sub Tab 1",
+    header: "Date Picker",
     component: SubTab1OnTab2,
   },
   // {
@@ -133,7 +133,7 @@ export const ORDER_IDENTITY_FORMS = [
 
 export const FINANCING_OBJECT_FORMS = [
 	{
-		header: "Tab 3 | Sub Tab 1",
+		header: "Radio Button",
 		component: FinancingInfo,
 	},
 // 	{
@@ -184,7 +184,7 @@ export const FINANCING_OBJECT_FORMS = [
 
 export const OWNERSHIP_DATA_FORMS = [
 	{
-		header: "Tab 4 | Sub Tab 1",
+		header: "Table",
 		component: HomeOwnershipInfo,
 	},
 ];

@@ -1,4 +1,4 @@
-import { BackTop, Layout, Switch } from "antd";
+import { BackTop, Layout } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -78,13 +78,13 @@ const MainLayout = (props) => {
                   <AvatarDropDown />
                 </div>
               )}
-              <Switch 
+              {/* <Switch 
               checkedChildren='Dark'
               unCheckedChildren='Light'
-              // onChange={toggleDarkMode}
-              // checked={darkMode}
-              // className="classes.darkModeToggle"
-              />
+              onChange={toggleDarkMode}
+              checked={darkMode}
+              className="classes.darkModeToggle"
+              /> */}
             </Header>
           </>
         )}

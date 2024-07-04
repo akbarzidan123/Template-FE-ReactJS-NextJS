@@ -81,19 +81,19 @@ const { Panel } = Collapse;
 
 const tabs = [
   {
-    tab: "Sample Tab 1",
+    tab: "Home",
     collapses: CUSTOMER_IDENTITY_FORMS,
   },
   {
-    tab: "Sample Tab 2",
+    tab: "Customer Handling",
     collapses: ORDER_IDENTITY_FORMS,
   },
   {
-    tab: "Sample Tab 3",
+    tab: "Data Entry Completion",
     collapses: FINANCING_OBJECT_FORMS,
   },
   {
-    tab: "Sample Tab 4",
+    tab: "Simulation",
     collapses: OWNERSHIP_DATA_FORMS,
   },
   // {

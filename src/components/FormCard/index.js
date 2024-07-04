@@ -9,7 +9,7 @@ const FormCard = (props) => {
 };
 
 FormCard.defaultProps = {
-	title: 'Detail Application',
+	title: 'Application Development Standard',
 };
 
 FormCard.propTypes = {

@@ -1040,18 +1040,18 @@ useEffect(() => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to The <a href="https://nextjs.org">Jungle!</a>
-        </h1>
+        </h1> */}
 
         <p className={styles.description}>
-          Contoh Penggunaan Drop Down Menu
+        	Drop Down Example
         </p>
 
         <div className={styles.grid}>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Drop Down 1"
+						label="Drop Down 1"
 						name="drop_down_example_1"
 					>
 						<Select
@@ -1061,7 +1061,7 @@ useEffect(() => {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Drop Down 2"
+						label="Drop Down 2"
 						name="drop_down_example_2"
 					>
 						<Select/>
@@ -1069,7 +1069,7 @@ useEffect(() => {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Drop Down 3"
+						label="Drop Down 3"
 						name="drop_down_example_3"
 					>
 						<Select
@@ -1079,7 +1079,7 @@ useEffect(() => {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Drop Down 4"
+						label="Drop Down 4"
 						name="drop_down_example_4"
 					>
 					<Select

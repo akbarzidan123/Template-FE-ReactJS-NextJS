@@ -1030,18 +1030,18 @@ export default function Home(props) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to The <a href="https://nextjs.org">Jungle!</a>
-        </h1>
+        </h1> */}
 
         <p className={styles.description}>
-          Contoh Penggunaan Field
+          Input Text Example
         </p>
 
         <div className={styles.grid}>
           <Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Category"
+						label="Input Text 1"
 						name="category"
 					>
 						<Input
@@ -1050,7 +1050,7 @@ export default function Home(props) {
 				</Col>
           <Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Brand"
+						label="Input Text 2"
 						name="brand"
 					>
 					<Input
@@ -1060,7 +1060,7 @@ export default function Home(props) {
 				  </Col>
           <Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Price"
+						label="Input Text 3"
 						name="price"
 					>
 					<Input
@@ -1071,7 +1071,7 @@ export default function Home(props) {
 				  </Col>
           <Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Rating"
+						label="Input Text 4"
 						name="rating"
 					>
 					<Input

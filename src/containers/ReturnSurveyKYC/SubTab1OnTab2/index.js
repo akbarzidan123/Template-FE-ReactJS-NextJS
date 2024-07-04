@@ -1018,18 +1018,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to The <a href="https://nextjs.org">Jungle!</a>
-        </h1>
+        </h1> */}
 
         <p className={styles.description}>
-          Contoh Penggunaan Date Picker
+          Date Picker Example
         </p>
 
         <div className={styles.grid}>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Date Picker 1"
+						label="Date Picker 1"
 						name="date_example_1"
 					>
           <DatePicker
@@ -1045,7 +1045,7 @@ export default function Home() {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Date Picker 2"
+						label="Date Picker 2"
 						name="date_example_2"
 					>
 					<DatePicker
@@ -1061,7 +1061,7 @@ export default function Home() {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Date Picker 3"
+						label="Date Picker 3"
 						name="date_example_3"
 					>
           <DatePicker
@@ -1076,7 +1076,7 @@ export default function Home() {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Date Picker 4"
+						label="Date Picker 4"
 						name="date_example_4"
 					>
           <DatePicker

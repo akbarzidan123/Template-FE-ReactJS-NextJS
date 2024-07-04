@@ -16,18 +16,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to The <a href="https://nextjs.org">Jungle!</a>
-        </h1>
+        </h1> */}
 
         <p className={styles.description}>
-          Contoh Penggunaan Radio Button
+          Radio Button Example
         </p>
 
         <div className={styles.grid}>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Radio Button 1"
+						label="Radio Button 1"
 						name="radio_example_1"
 					>
 					<Radio.Group
@@ -51,7 +51,7 @@ export default function Home() {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Radio Button 2"
+						label="Radio Button 2"
 						name="radio_example_2"
 					>
 					<Radio.Group
@@ -75,7 +75,7 @@ export default function Home() {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Radio Button 3"
+						label="Radio Button 3"
 						name="radio_example_3"
 					>
 					<Radio.Group
@@ -101,7 +101,7 @@ export default function Home() {
 				</Col>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Radio Button 4"
+						label="Radio Button 4"
 						name="radio_example_4"
 					>
 					<Radio.Group

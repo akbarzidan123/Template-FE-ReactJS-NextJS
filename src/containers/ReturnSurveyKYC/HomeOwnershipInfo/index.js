@@ -10,32 +10,32 @@ export default function Home() {
 
   const columns = [
 		{
-			title: "Kolom 1",
+			title: "Column 1",
 			dataIndex: "column_1",
 			key: 1,
 		},
 		{
-			title: "Kolom 2",
+			title: "Column 2",
 			dataIndex: "column_2",
 			key: 2,
 		},
 		{
-			title: "Kolom 3",
+			title: "Column 3",
 			dataIndex: "column_3",
 			key: 3,
 		},
 		{
-			title: "Kolom 4",
+			title: "Column 4",
 			dataIndex: "column_4",
 			key: 4,
 		},
 		{
-			title: "Kolom 5",
+			title: "Column 5",
 			dataIndex: "column_5",
 			key: 5,
 		},
 		{
-			title: "Kolom 6",
+			title: "Column 6",
 			dataIndex: "column_6",
 			key: 6,
 		},
@@ -50,19 +50,19 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to The <a href="https://nextjs.org">Jungle!</a>
-        </h1>
+        </h1> */}
 
         <p className={styles.description}>
-          Contoh Penggunaan Table
+          Table Example
         </p>
 
         <div className={styles.grid}>
 				<Col md={30} xs={30} style={{marginRight: '20px'}}>
 					<Form.Item
-						label="Contoh Date Picker 1"
-						name="date_example_1"
+						label="Table"
+						name="table_example_1"
 					>
           <Table
 							scroll={{ x: 600 }}
