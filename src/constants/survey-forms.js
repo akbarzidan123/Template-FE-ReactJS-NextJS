@@ -77,6 +77,9 @@ import SubTab2OnTab1 from "src/containers/ReturnSurveyKYC/SubTab2OnTab1";
 // import KycTeleInformasiTempatTinggalNas from "src/containers/Kyc/KycTeleSurvey/InformasiTempatTinggalNas";
 // import KycTeleInformasiPencairanLangsung from "src/containers/Kyc/KycTeleSurvey/InfPencairanLangsung";
 
+// SIMULATION TAB
+import SubTabSimulation1 from "src/containers/ReturnSurveyKYC/SubTabSimulation1";
+
 export const CUSTOMER_IDENTITY_FORMS = [
   {
     header: "Input Text",
@@ -187,6 +190,10 @@ export const OWNERSHIP_DATA_FORMS = [
 		header: "Table",
 		component: HomeOwnershipInfo,
 	},
+  {
+    header: "Checkbox",
+    component: SubTabSimulation1,
+  },
 ];
 
 // export const SURVEY_RESULTS_FORMS = [
