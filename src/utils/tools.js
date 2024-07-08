@@ -9,3 +9,7 @@ export const dateParser = (date) => {
   newDate = moment(newDate).format("YYYY-MM-DD");
   return newDate;
 };
+
+export function isNil(value) {
+	return typeof value === "undefined" || value === null;
+};

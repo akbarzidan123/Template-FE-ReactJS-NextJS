@@ -34,6 +34,10 @@ import HomeOwnershipInfo from "src/containers/ReturnSurveyKYC/HomeOwnershipInfo"
 import IdentityInfo from "src/containers/ReturnSurveyKYC/IdentityInfo";
 import SubTab1OnTab2 from "src/containers/ReturnSurveyKYC/SubTab1OnTab2";
 import SubTab2OnTab1 from "src/containers/ReturnSurveyKYC/SubTab2OnTab1";
+import SubTab2OnTab2 from "src/containers/ReturnSurveyKYC/SubTab2OnTab2";
+import SubTab3OnTab2 from "src/containers/ReturnSurveyKYC/SubTab3OnTab2";
+
+
 // import IdentityInternalSales from "src/containers/ReturnSurveyKYC/IdentityInternalSales";
 // import IdentityOrder from "src/containers/ReturnSurveyKYC/IdentityOrderInformation";
 // import IdentityRestructuring from "src/containers/ReturnSurveyKYC/IdentityRestructuring";
@@ -119,6 +123,14 @@ export const ORDER_IDENTITY_FORMS = [
   {
     header: "Date Picker",
     component: SubTab1OnTab2,
+  },
+  {
+  	header: "Combo Box",
+  	component: SubTab2OnTab2,
+  },
+  {
+  	header: "Currency Input",
+  	component: SubTab3OnTab2,
   },
   // {
   // 	header: "Informasi Refinancing/Restructuring",
