@@ -26,7 +26,7 @@
 // import DomicileAddress from "src/containers/ReturnSurveyKYC/DomicileAddress";
 // import DomicileAddressOnly from "src/containers/ReturnSurveyKYC/DomicileAddressOnly";
 // import FiduciaryFeeInfo from "src/containers/ReturnSurveyKYC/FiduciaryFeeInfo";
-// import FinanceStructureInfo from "src/containers/ReturnSurveyKYC/FinanceStructureInfo";
+import FinanceStructureInfo from "src/containers/ReturnSurveyKYC/FinanceStructureInfo";
 import FinancingInfo from "src/containers/ReturnSurveyKYC/FinancingInfo";
 // Ownership Data
 import HomeOwnershipInfo from "src/containers/ReturnSurveyKYC/HomeOwnershipInfo";
@@ -46,7 +46,7 @@ import SubTab2OnTab1 from "src/containers/ReturnSurveyKYC/SubTab2OnTab1";
 // import RefundInfo from "src/containers/ReturnSurveyKYC/RefundInfo";
 // import SpouseInfo from "src/containers/ReturnSurveyKYC/SpouseInfo";
 // import SpouseJobInfo from "src/containers/ReturnSurveyKYC/SpouseJobInfo";
-// import SupplierInfo from "src/containers/ReturnSurveyKYC/SupplierInfo";
+import SupplierInfo from "src/containers/ReturnSurveyKYC/SupplierInfo";
 // import SurveyInfo from "src/containers/ReturnSurveyKYC/SurveyInfo";
 // import WarrantyInfo from "src/containers/ReturnSurveyKYC/WarrantyInfo";
 
@@ -139,14 +139,14 @@ export const FINANCING_OBJECT_FORMS = [
 		header: "Radio Button",
 		component: FinancingInfo,
 	},
-// 	{
-// 		header: "Informasi Supplier",
-// 		component: SupplierInfo,
-// 	},
-// 	{
-// 		header: "Informasi Struktur Pembiayaan",
-// 		component: FinanceStructureInfo,
-// 	},
+	{
+		header: "Date Range Picker",
+		component: SupplierInfo,
+	},
+	{
+		header: "Show Modal",
+		component: FinanceStructureInfo,
+	},
 // 	{
 // 		header: "Informasi Biaya Admin",
 // 		component: AdminFeeInfo,
