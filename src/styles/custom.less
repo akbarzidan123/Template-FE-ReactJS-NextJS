@@ -27,6 +27,8 @@ body {
   .ant-input-number-group-wrapper {
     width: 100%;
   }
+
+  background-color: #f6f8f9;
 }
 
 .g2-tooltip-bullet {
@@ -424,7 +426,7 @@ strong {
 
 .ant-layout-sider {
   background: @white;
-  border-right: 1px solid @grey;
+  // border-right: 1px solid @grey;
 }
 
 .ant-layout-header {
@@ -446,7 +448,9 @@ strong {
 }
 
 .ant-layout-sider-children {
-  padding: 15px;
+  padding: 15px 15px 0 15px;
+  // width: 400px;
+  // background-color: red;
 }
 
 .ant-menu-inline,
@@ -456,9 +460,13 @@ strong {
 }
 
 .ant-layout-content {
-  padding: 15px;
+  // padding: 15px;
   margin: 0;
-  background: @layout-content-background;
+  background-color: @layout-content-background;
+}
+
+.ant-card-bordered{
+  border: none;
 }
 
 .ant-menu-item {
@@ -982,6 +990,12 @@ textarea[type="secondary"],
     .ant-col:first-child {
       margin-bottom: 8px;
     }
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .ant-layout-sider-children{
+    display: none;
   }
 }
 

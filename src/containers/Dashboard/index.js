@@ -4,7 +4,7 @@ import {
   EditOutlined,
   SlidersOutlined,
   AppstoreOutlined,
-  MailOutlined,
+  HomeOutlined,
   SettingOutlined
 } from "@ant-design/icons";
 import {
@@ -75,49 +75,52 @@ const columns = [
   //   key: "1",
   // },
   {
-    title: "Judul",
+    title: "JUDUL",
     dataIndex: "title",
+    width: 80,
     key: "2",
   },
   {
-    title: "Deskripsi",
+    title: "DESKRIPSI",
     dataIndex: "description",
     width: 150,
     key: "3",
   },
   {
-    title: "Harga",
+    title: "HARGA",
     dataIndex: "price",
+    width: 50,
     key: "4",
   },
   {
-    title: "Discount",
+    title: "DISCOUNT",
     dataIndex: "discountPercentage",
-    width: 300,
+    width: 50,
     key: "5",
   },
   {
-    title: "Rating",
+    title: "RATING",
     dataIndex: "rating",
     key: "6",
-    width: 300,
+    width: 50,
   },
   {
-    title: "Stock",
+    title: "STOCK",
     dataIndex: "stock",
-    width: 200,
+    width: 50,
     key: "7",
   },
   {
-    title: "Brand",
+    title: "BRAND",
     dataIndex: "brand",
+    width: 50,
     key: "8",
   },
   {
-    title: "Aksi",
+    title: "AKSI",
     key: "id",
     fixed: "right",
-    width: 50,
+    width: 30,
     render: (_data) => (
       <Row>
         <Col span={24} lg={0}>
@@ -140,108 +143,79 @@ const columns = [
 const items = [
   {
     key: 'sub1',
-    label: 'Navigation One',
-    icon: <MailOutlined />,
-    children: [
-      {
-        key: 'g1',
-        label: 'Item 1',
-        type: 'group',
-        children: [
-          {
-            key: '1',
-            label: 'Option 1',
-          },
-          {
-            key: '2',
-            label: 'Option 2',
-          },
-        ],
-      },
-      {
-        key: 'g2',
-        label: 'Item 2',
-        type: 'group',
-        children: [
-          {
-            key: '3',
-            label: 'Option 3',
-          },
-          {
-            key: '4',
-            label: 'Option 4',
-          },
-        ],
-      },
-    ],
+    label: 'Home',
+    icon: <HomeOutlined color="#fff" />,
   },
   {
     key: 'sub2',
-    label: 'Navigation Two',
+    label: 'Sub Menu',
     icon: <AppstoreOutlined />,
     children: [
       {
         key: '5',
-        label: 'Option 5',
+        label: 'Menu 1',
+        onClick: () => {
+          alert("Menu 1")
+        }
       },
       {
         key: '6',
-        label: 'Option 6',
+        label: 'Menu 2',
       },
       {
         key: 'sub3',
-        label: 'Submenu',
+        label: 'Sub Menu Lagi',
         children: [
           {
             key: '7',
-            label: 'Option 7',
+            label: 'Menu 3',
           },
           {
             key: '8',
-            label: 'Option 8',
+            label: 'Menu 4',
           },
         ],
       },
     ],
   },
-  {
-    type: 'divider',
-  },
-  {
-    key: 'sub4',
-    label: 'Navigation Three',
-    icon: <SettingOutlined />,
-    children: [
-      {
-        key: '9',
-        label: 'Option 9',
-      },
-      {
-        key: '10',
-        label: 'Option 10',
-      },
-      {
-        key: '11',
-        label: 'Option 11',
-      },
-      {
-        key: '12',
-        label: 'Option 12',
-      },
-    ],
-  },
+  // {
+  //   type: 'divider',
+  // },
+  // {
+  //   key: 'sub4',
+  //   label: 'Navigation Three',
+  //   icon: <SettingOutlined />,
+  //   children: [
+  //     {
+  //       key: '9',
+  //       label: 'Option 9',
+  //     },
+  //     {
+  //       key: '10',
+  //       label: 'Option 10',
+  //     },
+  //     {
+  //       key: '11',
+  //       label: 'Option 11',
+  //     },
+  //     {
+  //       key: '12',
+  //       label: 'Option 12',
+  //     },
+  //   ],
+  // },
   {
     key: 'grp',
-    label: 'Group',
+    label: 'Group Menu',
     type: 'group',
     children: [
       {
         key: '13',
-        label: 'Option 13',
+        label: 'Group Menu 1',
       },
       {
         key: '14',
-        label: 'Option 14',
+        label: 'Group Menu 2',
       },
     ],
   },
@@ -625,215 +599,225 @@ const Index = ({ token }) => {
   // };
 
   return (
-    <Layout style={{minHeight: '100vh'}}>
-      <Sider
-        className="sidebar"
-        breakpoint={"lg"}
-        theme="light"
-        collapsedWidth={0}
-        trigger={null}
-      >
-        <Menu
-          mode="inline"
-          items={items}
-        />
-      </Sider>
+    <div style={{
+      display: "flex",
+      flexDirection: "column"
+    }}>
+      <Layout style={{minHeight: '100vh'}}>
+        <Sider
+          // className="sidebar"
+          // breakpoint={"lg"}
+          className={classes.sidebar}
+          theme="light"
+          collapsedWidth={0}
+          trigger={null}
+          width={250}
+        >
+          <Menu
+            mode="inline"
+            items={items}
+          />
+        </Sider>
       <Layout>
-      <Content style={{ padding: '0 24px', minHeight: 280 }}>
-    <div className={classes.filterWrapper}>
-      <div></div>
-      <Card title={<Title text="Kriteria Filter" icon={<SlidersOutlined />} />}>
-        <Row gutter={12}>
-          <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
-            <Select
-              //   disabled={!closeApp}
-              suffixIcon={<CaretDownOutlined />}
-              placeholder="Sample Drop Down"
-              // value={selectBranches}
-              //   options={branches}
-              //   defaultValue={branches[0].label}
-              //   onChange={handleBranchChange}
-            />
-          </Col>
-          <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
-            <Input
-              //   disabled={!closeApp}
-              placeholder="Cari"
-                onChange={handleApplicationSearch}
-                value={query}
-              //   onKeyPress={allowOnlyNumber}
-              maxLength="14"
-            />
-          </Col>
-        </Row>
-        <Row gutter={12}>
-          <Col className={classes.inputWrapper} lg={12} md={12} sm={24} xs={24}>
-            <Row gutter={12}>
-              <Col
-                className={classes.inputColumn}
-                lg={12}
-                md={12}
-                sm={24}
-                xs={24}
-              >
-                <DatePicker
-                  //   disabled={!closeApp}
-                  placeholder="Sample Date Picker"
-                  //   disabledDate={disabledStartDate}
-                  //   onChange={onStartChange}
-                  //   value={startValue}
-                  showToday={false}
-                />
-              </Col>
-              <Col
-                className={classes.inputColumn}
-                lg={12}
-                md={12}
-                sm={24}
-                xs={24}
-              >
-                <DatePicker
-                  //   disabled={!closeApp}
-                  placeholder="Sample Date Picker"
-                  //   disabledDate={disabledEndDate}
-                  //   onChange={onEndChange}
-                  //   value={endValue}
-                  showToday={false}
-                />
-              </Col>
-            </Row>
-          </Col>
-          <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
-            <Input
-              //   disabled={!closeApp}
-              placeholder="Sample Field"
-              //   onChange={handleDebiturChange}
-              //   value={debitur}
-            />
-          </Col>
-        </Row>
-        <Row gutter={12}>
-          <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
-            <Select
-              //   disabled={!closeApp}
-              suffixIcon={<CaretDownOutlined />}
-              placeholder="Sample Drop Down"
-              //   value={selectScreenings}
-              //   options={screeningList}
-              //   onChange={handleScreeningChange}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={8} md={8} sm={24} xs={24}></Col>
-          <Col lg={4} md={4} sm={24} xs={24}>
-            <Button
-              type="secondary"
-              shape="round"
-              className={classes.button}
-                onClick={resetData}
-            >
-              Reset
-            </Button>
-          </Col>
-          <Col lg={4} md={4} sm={24} xs={24}>
-            <Button
-              type="primary"
-              shape="round"
-              className={classes.button}
-              onClick={fetchData}
-              loading={loading}
-              disabled={loading}
-            >
-              Search
-            </Button>
-          </Col>
-        </Row>
-      </Card>
-      <Card className="table-full">
-        <Row>
-          <Col span={24} lg={0}>
-            <List
-              pagination={{
-                showSizeChanger: true,
-                // total: total ? data?.totalData : 0,
-                // current: page,
-                // onChange: (p, s) => updatePagination(p, s),
-              }}
-              dataSource={selectorReset ? [] : rows}
-              itemLayout="vertical"
-              grid={{
-                gutter: 16,
-                column: 1,
-                md: 2,
-              }}
-              renderItem={(item) => (
-                <Card
-                  className={classes.wrapperListData}
-                  title="Sample"
-                  headStyle={{
-                    backgroundColor: "#003d79",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                  bodyStyle={{ backgroundColor: "#e1e5e9" }}
+      <Content style={{ minHeight: 280 }}>
+      <div className={classes.filterWrapper}>
+        <Card title={<Title text="Kriteria Filter" icon={<SlidersOutlined />} />} style={{
+          padding: "0 5px"
+        }}>
+          <Row gutter={12}>
+            <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
+              <Select
+                //   disabled={!closeApp}
+                suffixIcon={<CaretDownOutlined />}
+                placeholder="Sample Drop Down"
+                // value={selectBranches}
+                //   options={branches}
+                //   defaultValue={branches[0].label}
+                //   onChange={handleBranchChange}
+              />
+            </Col>
+            <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
+              <Input
+                //   disabled={!closeApp}
+                placeholder="Cari"
+                  onChange={handleApplicationSearch}
+                  value={query}
+                //   onKeyPress={allowOnlyNumber}
+                maxLength="14"
+              />
+            </Col>
+          </Row>
+          <Row gutter={12}>
+            <Col className={classes.inputWrapper} lg={12} md={12} sm={24} xs={24}>
+              <Row gutter={12}>
+                <Col
+                  className={classes.inputColumn}
+                  lg={12}
+                  md={12}
+                  sm={24}
+                  xs={24}
                 >
-                  <List.Item>
-                    {columns.map((column) => (
-                      <Row
-                        key={column.title}
-                        className={classes.rowTitleWrapper}
-                      >
-                        <Col xs={11}>
-                          <b>{column.title}</b>
-                        </Col>
-                        <Col xs={12}>
-                          {column.render
-                            ? column.render(item)
-                            : item[column.dataIndex]}
-                        </Col>
-                      </Row>
-                    ))}
-                  </List.Item>
-                </Card>
-              )}
-            ></List>
-          </Col>
-          <Col span={0} lg={24}>
-            <Table
-              columns={columns}
-              dataSource={selectorReset ? [] : rows}
-              loading={{
-                indicator: (
-                  <div>
-                    <Spin
-                      style={{
-                        fontSize: 400,
-                        width: "100vw",
-                        height: "100vh",
-                        alignContent: "center",
-                        alignItems: "center",
-                      }}
-                    />
-                  </div>
-                ),
-                spinning: loading,
-              }}
-              pagination={{
-                showSizeChanger: true,
-                // total: total ? data?.totalData : 0,
-                // current: page,
-                // onChange: (p, s) => updatePagination(p, s),
-              }}
-              scroll={{ x: 1600 }}
-            />
-          </Col>
-        </Row>
-      </Card>
+                  <DatePicker
+                    //   disabled={!closeApp}
+                    placeholder="Sample Date Picker"
+                    //   disabledDate={disabledStartDate}
+                    //   onChange={onStartChange}
+                    //   value={startValue}
+                    showToday={false}
+                  />
+                </Col>
+                <Col
+                  className={classes.inputColumn}
+                  lg={12}
+                  md={12}
+                  sm={24}
+                  xs={24}
+                >
+                  <DatePicker
+                    //   disabled={!closeApp}
+                    placeholder="Sample Date Picker"
+                    //   disabledDate={disabledEndDate}
+                    //   onChange={onEndChange}
+                    //   value={endValue}
+                    showToday={false}
+                  />
+                </Col>
+              </Row>
+            </Col>
+            <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
+              <Input
+                //   disabled={!closeApp}
+                placeholder="Sample Field"
+                //   onChange={handleDebiturChange}
+                //   value={debitur}
+              />
+            </Col>
+          </Row>
+          <Row gutter={12}>
+            <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
+              <Select
+                //   disabled={!closeApp}
+                suffixIcon={<CaretDownOutlined />}
+                placeholder="Sample Drop Down"
+                //   value={selectScreenings}
+                //   options={screeningList}
+                //   onChange={handleScreeningChange}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={8} md={8} sm={24} xs={24}></Col>
+            <Col lg={4} md={4} sm={24} xs={24}>
+              <Button
+                type="secondary"
+                shape="round"
+                className={classes.button}
+                  onClick={resetData}
+              >
+                Reset
+              </Button>
+            </Col>
+            <Col lg={4} md={4} sm={24} xs={24}>
+              <Button
+                type="primary"
+                shape="round"
+                className={classes.button}
+                onClick={fetchData}
+                loading={loading}
+                disabled={loading}
+              >
+                Search
+              </Button>
+            </Col>
+          </Row>
+        </Card>
+        <Card className="table-full" style={{
+          padding: "0 5px"
+        }}>
+          <Row>
+            <Col span={24} lg={0}>
+              <List
+                pagination={{
+                  showSizeChanger: true,
+                  // total: total ? data?.totalData : 0,
+                  // current: page,
+                  // onChange: (p, s) => updatePagination(p, s),
+                }}
+                dataSource={selectorReset ? [] : rows}
+                itemLayout="vertical"
+                grid={{
+                  gutter: 16,
+                  column: 1,
+                  md: 2,
+                }}
+                renderItem={(item) => (
+                  <Card
+                    className={classes.wrapperListData}
+                    title="Sample"
+                    headStyle={{
+                      backgroundColor: "#003d79",
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                    bodyStyle={{ backgroundColor: "#e1e5e9" }}
+                  >
+                    <List.Item>
+                      {columns.map((column) => (
+                        <Row
+                          key={column.title}
+                          className={classes.rowTitleWrapper}
+                        >
+                          <Col xs={11}>
+                            <b>{column.title}</b>
+                          </Col>
+                          <Col xs={12}>
+                            {column.render
+                              ? column.render(item)
+                              : item[column.dataIndex]}
+                          </Col>
+                        </Row>
+                      ))}
+                    </List.Item>
+                  </Card>
+                )}
+              ></List>
+            </Col>
+            <Col span={0} lg={24}>
+              <Table
+                columns={columns}
+                dataSource={selectorReset ? [] : rows}
+                loading={{
+                  indicator: (
+                    <div>
+                      <Spin
+                        style={{
+                          fontSize: 400,
+                          width: "100vw",
+                          height: "100vh",
+                          alignContent: "center",
+                          alignItems: "center",
+                        }}
+                      />
+                    </div>
+                  ),
+                  spinning: loading,
+                }}
+                pagination={{
+                  showSizeChanger: true,
+                  // total: total ? data?.totalData : 0,
+                  // current: page,
+                  // onChange: (p, s) => updatePagination(p, s),
+                }}
+                scroll={{ x: 1600 }}
+              />
+            </Col>
+          </Row>
+        </Card>
+      </div>
+      </Content>
+      </Layout>
+      </Layout>
     </div>
-    </Content>
-    </Layout>
-    </Layout>
   );
 };
 
