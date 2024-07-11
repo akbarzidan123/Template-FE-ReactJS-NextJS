@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 import AuthStorage from "src/utils/auth-storage";
 // import IdStorage from "src/utils/id-storage";
+import { useSession, getSession } from "next-auth/react";
+import { decode } from "next-auth/jwt";
 
 import Dashboard from "../Dashboard/index";
 import Login from "../../containers/Login/index";
@@ -23,9 +25,12 @@ const Index = (props) => {
   // const { query, asPath } = useRouter();
   // const [, token, params] = asPath.split("/");
   const [loading, setLoading] = useState(true);
+  const { data } = useSession()
 
   const application = applicationStorage.data;
   const { order_id } = application || {};
+
+  const secret = process.env.NEXTAUTH_SECRET;
 
   console.log("data", application);
 
@@ -50,6 +55,15 @@ const Index = (props) => {
       applicationStorage.value = {};
     }
   }, []);
+
+  useEffect(async () => {
+    const decodedToken = await decode({
+      token: data?.jwt,
+      secret
+    });
+    console.log("data login: ", data);
+    console.log("hasil decode: ", decodedToken);
+  }, [data])
 
   console.log("bab", AuthStorage.loggedIn);
 

@@ -2,6 +2,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Spin, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { signIn } from "next-auth/react"
 
 // Actions
 import { actionLoginTest, actionTokenLoginTest } from "src/redux/actions/auth";
@@ -56,29 +57,55 @@ const Login = ({ token }) => {
   };
 
   const onFinish = async (values) => {
-    if(values.username = "test" && values.password != null){
-      try {
-        setLoading(true);
-        await dispatch(
-          await actionLoginTest({username: "emilys",
-          password: "emilyspass"})
-        );
-      } finally {
-        reloadPage();
-      }
-    }else{
-      try {
-        setLoading(true);
-        await dispatch(
-          await actionLoginTest({username: "",
-          password: ""})
-        );
-      } finally {
-        // reloadPage();
-      }
+    const { username, password } = values
+
+    try{
+      const response = await signIn("credentials", {
+        username,
+        password,
+        duar_data: "DUARRR",
+        redirect: false,
+      })
+
+      console.log(response);
+      // authStorage.value = {
+      //   "id": 1,
+      //   "username": "emilys",
+      //   "email": "emily.johnson@x.dummyjson.com",
+      //   "firstName": "Emily",
+      //   "lastName": "Johnson",
+      //   "gender": "female",
+      //   "image": "https://dummyjson.com/icon/emilys/128",
+      //   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJtaWNoYWVsdyIsImVtYWlsIjoibWljaGFlbC53aWxsaWFtc0B4LmR1bW15anNvbi5jb20iLCJmaXJzdE5hbWUiOiJNaWNoYWVsIiwibGFzdE5hbWUiOiJXaWxsaWFtcyIsImdlbmRlciI6Im1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL21pY2hhZWx3LzEyOCIsImlhdCI6MTcxNzYxMTc0MCwiZXhwIjoxNzE3NjE1MzQwfQ.eQnhQSnS4o0sXZWARh2HsWrEr6XfDT4ngh0ejiykfH8",
+      //   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJtaWNoYWVsdyIsImVtYWlsIjoibWljaGFlbC53aWxsaWFtc0B4LmR1bW15anNvbi5jb20iLCJmaXJzdE5hbWUiOiJNaWNoYWVsIiwibGFzdE5hbWUiOiJXaWxsaWFtcyIsImdlbmRlciI6Im1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL21pY2hhZWx3LzEyOCIsImlhdCI6MTcxNzYxMTc0MCwiZXhwIjoxNzIwMjAzNzQwfQ.YsStJdmdUjKOUlbXdqze0nEScCM_RJw9rnuy0RdSn88"
+      // }
+    }catch(e){
+      console.log(e);
     }
+
+    // if(values.username = "test" && values.password != null){
+    //   try {
+    //     setLoading(true);
+    //     await dispatch(
+    //       await actionLoginTest({username: "emilys",
+    //       password: "emilyspass"})
+    //     );
+    //   } finally {
+    //     reloadPage();
+    //   }
+    // }else{
+    //   try {
+    //     setLoading(true);
+    //     await dispatch(
+    //       await actionLoginTest({username: "",
+    //       password: ""})
+    //     );
+    //   } finally {
+    //     // reloadPage();
+    //   }
+    // }
     
-    console.log("masukkk", values);
+    // console.log("masukkk", values);
   };
 
   return (
