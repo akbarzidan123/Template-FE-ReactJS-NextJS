@@ -8,7 +8,7 @@ import AuthStorage from "src/utils/auth-storage";
 // import IdStorage from "src/utils/id-storage";
 import { useSession } from "next-auth/client";
 // import { decode } from "next-auth/jwt";
-import { jwtDecode } from "jwt-decode"
+import jwt_decode from "jwt-decode";
 
 import Dashboard from "../Dashboard/index";
 import Login from "../../containers/Login/index";
@@ -71,9 +71,7 @@ const Index = (props) => {
     const token = session.jwt
     
     try{
-        // set ke local storage
-        // localStorage.setItem("AUTH", {token: token})
-        const decoded = jwtDecode(token)
+        const decoded = jwt_decode(token)
 
         console.log('Decoded JWT payload:', decoded)
       }catch(e) {
