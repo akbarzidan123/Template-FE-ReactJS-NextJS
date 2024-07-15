@@ -58,18 +58,7 @@ const Index = (props) => {
     }
   }, []);
 
-  // const decodedToken = jwtDecode(session?.jwt)
-  // if(session) {
-  //   const token = session.jwt
-
-  //   try{
-  //     const decoded = jwtDecode(token)
-  //     console.log('Decoded JWT payload:', decoded)
-  //   }catch(e) {
-  //     console.log(e)
-  //   }
-  // }
-
+  // untuk handle kondisi after login (exp: catch token login, etc)
   useEffect(() => {
     // const decodedToken = await decode({
     //   token: session?.jwt,
@@ -80,12 +69,15 @@ const Index = (props) => {
 
     if(session) {
     const token = session.jwt
-
-      try{
+    
+    try{
+        // set ke local storage
+        // localStorage.setItem("AUTH", {token: token})
         const decoded = jwtDecode(token)
+
         console.log('Decoded JWT payload:', decoded)
       }catch(e) {
-        console.log(e)
+        console.log("Error pada saat decode token jwt: ", e)
       }
     }
   }, [session])

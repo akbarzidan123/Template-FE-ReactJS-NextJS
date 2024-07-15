@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-import { encode, decode } from "next-auth/jwt";
+import { encode } from "next-auth/jwt";
 
 const secret = process.env.NEXTAUTH_SECRET;
 
@@ -23,17 +23,6 @@ const handler = NextAuth({
         }
         return null;
       }
-      // async authorize(credentials, req) {
-      //   console.log("credent: ", credentials)
-      //   if(credentials?.username == "test"){
-      //     return {
-      //       username: credentials?.username,
-      //       password: credentials?.password,
-      //       duar_data: credentials?.duar_data || "DUAR_DEFAULT"
-      //     }
-      //   }
-      //   return null;
-      // },
     }),
   ],
   callbacks: {
@@ -60,7 +49,7 @@ const handler = NextAuth({
         // contoh nambah key objek baru
         session.create_new_objek = "test"
 
-        // Encode objek token
+        // generate objek token jwt
         const jwtString = await encode({
           token, 
           secret,
@@ -71,15 +60,12 @@ const handler = NextAuth({
         });
         session.jwt = jwtString;
 
-        // Decode the token to verify payload
-        const decodedToken = await decode({
-          token: jwtString,
-          secret
-        });
-        // console.log("Decoded JWT Token:", decodedToken);
+        // Decode the token to verify payload (for checking)
+        // const decodedToken = await decode({
+        //   token: jwtString,
+        //   secret
+        // });
       }
-      // console.log("session: ", session);
-      // console.log("token: ", token);
       return session;
     }
   },
