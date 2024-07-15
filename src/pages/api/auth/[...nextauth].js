@@ -1,20 +1,19 @@
-import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
 import { encode, decode } from "next-auth/jwt";
 
 const secret = process.env.NEXTAUTH_SECRET;
 
 const handler = NextAuth({
-  session: { strategy: "jwt" },
   providers: [
-    CredentialsProvider({
+    Providers.Credentials({
       name: "Credentials",
       credentials: {
         username: {},
         password: {},
         duar_data: {}
       },
-      async authorize(credentials, req) {
+      authorize: async (credentials, req) => {
         if(credentials?.username == "test"){
           return {
             username: credentials?.username,
@@ -23,11 +22,22 @@ const handler = NextAuth({
           }
         }
         return null;
-      },
+      }
+      // async authorize(credentials, req) {
+      //   console.log("credent: ", credentials)
+      //   if(credentials?.username == "test"){
+      //     return {
+      //       username: credentials?.username,
+      //       password: credentials?.password,
+      //       duar_data: credentials?.duar_data || "DUAR_DEFAULT"
+      //     }
+      //   }
+      //   return null;
+      // },
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt(token, user) {
       if (user) {
         token.user = user;
         token.name = "test"
@@ -41,9 +51,9 @@ const handler = NextAuth({
       }
 
       return token;
-
     },
-    async session({ session, token }) {
+
+    async session(session, token) {
       if (token.user) {
         session.user = token.user;
 
@@ -66,22 +76,25 @@ const handler = NextAuth({
           token: jwtString,
           secret
         });
-        console.log("Decoded JWT Token:", decodedToken);
+        // console.log("Decoded JWT Token:", decodedToken);
       }
+      // console.log("session: ", session);
+      // console.log("token: ", token);
       return session;
     }
   },
   jwt: {
     secret,
-    encryption: true,
-    signingKey: {
-      alg: 'HS256',
-      typ: 'JWT'
-    }
+    // encryption: true,
+    // signingKey: {
+    //   alg: 'HS256',
+    //   typ: 'JWT'
+    // }
   },
   session: {
     maxAge: 10, // Sesi akan bertahan selama 10 detik
     updateAge: 24 * 60 * 60, // Sesi akan diperbarui setiap 24 jam
+    strategy: "jwt"
   }
 });
 

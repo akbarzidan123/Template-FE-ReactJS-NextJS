@@ -6,7 +6,8 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import cookie from "react-cookies";
 import { useAsync } from "react-use";
-import { SessionProvider } from "next-auth/react";
+// import { SessionProvider } from "next-auth/react";
+// import { Provider } from "next-auth/client"
 
 // components
 import MainLayout from "../components/Layout/MainLayout";
@@ -114,12 +115,12 @@ const MyApp = (props) => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no, height=device-height, user-scalable=0"
         />
       </Head>
-      <SessionProvider session={pageProps.session}>
+      {/* <Provider session={pageProps.session}>
         <Component {...pageProps} router={router} />
-      </SessionProvider>
-      {/* <ConfigProvider form={{ validateMessages }}>
+      </Provider> */}
+      <ConfigProvider form={{ validateMessages }}>
         <Component {...pageProps} router={router} />
-      </ConfigProvider> */}
+      </ConfigProvider>
       <Loading fullScreen loading={awaitLoading} />
     </Layout>
   );

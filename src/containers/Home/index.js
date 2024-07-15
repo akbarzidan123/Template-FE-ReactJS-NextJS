@@ -6,8 +6,9 @@ import { useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 import AuthStorage from "src/utils/auth-storage";
 // import IdStorage from "src/utils/id-storage";
-import { useSession, getSession } from "next-auth/react";
-import { decode } from "next-auth/jwt";
+import { useSession } from "next-auth/client";
+// import { decode } from "next-auth/jwt";
+import { jwtDecode } from "jwt-decode"
 
 import Dashboard from "../Dashboard/index";
 import Login from "../../containers/Login/index";
@@ -25,7 +26,8 @@ const Index = (props) => {
   // const { query, asPath } = useRouter();
   // const [, token, params] = asPath.split("/");
   const [loading, setLoading] = useState(true);
-  const { data } = useSession()
+  // const { data } = useSession()
+  const [session, loadingSession] = useSession()
 
   const application = applicationStorage.data;
   const { order_id } = application || {};
@@ -56,14 +58,37 @@ const Index = (props) => {
     }
   }, []);
 
-  useEffect(async () => {
-    const decodedToken = await decode({
-      token: data?.jwt,
-      secret
-    });
-    console.log("data login: ", data);
-    console.log("hasil decode: ", decodedToken);
-  }, [data])
+  // const decodedToken = jwtDecode(session?.jwt)
+  // if(session) {
+  //   const token = session.jwt
+
+  //   try{
+  //     const decoded = jwtDecode(token)
+  //     console.log('Decoded JWT payload:', decoded)
+  //   }catch(e) {
+  //     console.log(e)
+  //   }
+  // }
+
+  useEffect(() => {
+    // const decodedToken = await decode({
+    //   token: session?.jwt,
+    //   secret
+    // });
+    console.log("data login: ", session);
+    // console.log("hasil decode: ", decodedToken);
+
+    if(session) {
+    const token = session.jwt
+
+      try{
+        const decoded = jwtDecode(token)
+        console.log('Decoded JWT payload:', decoded)
+      }catch(e) {
+        console.log(e)
+      }
+    }
+  }, [session])
 
   console.log("bab", AuthStorage.loggedIn);
 
