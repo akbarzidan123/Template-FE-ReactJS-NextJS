@@ -36,13 +36,6 @@ import Title from "src/components/Title";
 
 // // Actions
 import { actionFetchApprovalData, actionSearchData } from "src/redux/actions/data";
-// import {
-//   setFlagJoinIncome,
-//   setFlagTagih,
-//   setKtpDomisili,
-//   setKtpDomisiliData,
-//   setMarital,
-// } from "src/redux/actions/debitur";
 import AuthStorage from "src/utils/auth-storage";
 import IdStorage from "src/utils/id-storage";
 // import { allowOnlyNumber, dateParser, showError } from "src/utils/tools";
@@ -221,188 +214,19 @@ const items = [
   },
 ];
 
-// const data =
-//   [
-//     {
-//       order_id: "2405000852",
-//       source_order_desc: "ACQ",
-//       branch_code: "0107BEKASI",
-//       branch_desc: "BEKASI",
-//       application_id: "01072400002387",
-//       application_date: "2024/05/14 16:35:36",
-//       customer_name: "SKEN KEDUA",
-//       alamat: "PRAJA",
-//       outlet_channel_desc: "HONDA MITRA JATIASIH",
-//       screening_2: "REGULER SURVEY",
-//     },
-    // {
-    //   order_id: "2405009850",
-    //   source_order_desc: "MUFSURVEY",
-    //   branch_code: "0103",
-    //   branch_desc: "DUREN TIGA",
-    //   application_id: "01032400007347",
-    //   application_date: "2024/05/06 11:54:32",
-    //   customer_name: "BAIDI NUMAN",
-    //   alamat: "JL MAWAR 4 NO 35",
-    //   outlet_channel_desc: "",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2404043089",
-    //   source_order_desc: "MUFSURVEY",
-    //   branch_code: "0405",
-    //   branch_desc: "KEDIRI",
-    //   application_id: "04052400006282",
-    //   application_date: "2024/04/16 06:20:27",
-    //   customer_name: "WAHYU PUJI ASTUTIK",
-    //   alamat: "JL SEMERU 7",
-    //   outlet_channel_desc: "",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2403131699",
-    //   source_order_desc: "MUFSURVEY",
-    //   branch_code: "0501",
-    //   branch_desc: "DENPASAR",
-    //   application_id: "05012400006118",
-    //   application_date: "2024/03/30 14:03:42",
-    //   customer_name: "I WAYAN AGUS SUPRIADA",
-    //   alamat: "JL AHMAD YANI GG BEBEK NO 6 PEGUYANAGAN",
-    //   outlet_channel_desc: "JEPANG MOTOR",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2403000410",
-    //   source_order_desc: "MUFSURVEY",
-    //   branch_code: "0107",
-    //   branch_desc: "BEKASI",
-    //   application_id: "01072400001620",
-    //   application_date: "2024/03/26 12:40:55",
-    //   customer_name: "BINTANG",
-    //   alamat: "TSB 2",
-    //   outlet_channel_desc: "PT BEKASI MOTOR",
-    //   screening_2: "INSTANT APPROVAL",
-    // },
-    // {
-    //   order_id: "2403000321",
-    //   source_order_desc: "ACQ",
-    //   branch_code: "0107",
-    //   branch_desc: "BEKASI",
-    //   application_id: "01072400001502",
-    //   application_date: "2024/03/21 17:16:25",
-    //   customer_name: "NAMA SESUAI KTP ELLA",
-    //   alamat: "ALAMAT KTP ELLA",
-    //   outlet_channel_desc: "CV SAHABAT MOTOR",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2403000321",
-    //   source_order_desc: "ACQ",
-    //   branch_code: "0107",
-    //   branch_desc: "BEKASI",
-    //   application_id: "01072400001501",
-    //   application_date: "2024/03/21 17:16:25",
-    //   customer_name: "NAMA SESUAI KTP ELLA",
-    //   alamat: "ALAMAT KTP ELLA",
-    //   outlet_channel_desc: "CV SAHABAT MOTOR",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2403088458",
-    //   source_order_desc: "MUFSURVEY",
-    //   branch_code: "0107",
-    //   branch_desc: "BEKASI",
-    //   application_id: "01072400004593",
-    //   application_date: "2024/03/21 09:03:34",
-    //   customer_name: "AFIF ZULKARNAEN",
-    //   alamat: "PONDOK CIPTA BLOK G 49",
-    //   outlet_channel_desc: "BSI KCP BEKASI JATIASIH",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2403000222",
-    //   source_order_desc: "ACQ",
-    //   branch_code: "0107",
-    //   branch_desc: "BEKASI",
-    //   application_id: "01072400001408",
-    //   application_date: "2024/03/19 10:37:33",
-    //   customer_name: "SITO RESMI",
-    //   alamat: "JL TESTING NO 11",
-    //   outlet_channel_desc: "",
-    //   screening_2: "REGULER SURVEY",
-    // },
-    // {
-    //   order_id: "2403000210",
-    //   source_order_desc: "ACQ",
-    //   branch_code: "0107",
-    //   branch_desc: "BEKASI",
-    //   application_id: "01072400001385",
-    //   application_date: "2024/03/18 15:15:31",
-    //   customer_name: "RITA SARI TEST ABDIL",
-    //   alamat: "JALAN MINGGU",
-    //   outlet_channel_desc: "AUTO 2000 - JATI ASIH",
-    //   screening_2: "REGULER SURVEY",
-    // },
-  // ] || "";
-
 // const datas = JSON.stringify(data);
 const Index = ({ token }) => {
-  const approval_flag = ["RTRE", "RTRS", "RTDE"];
-  const closed = ["CLOSED"];
 
   const auth = AuthStorage.data;
-  // const { iamResult } = auth || {};
-  // const { resultProfileUserRole } = iamResult || {};
-
-  // const branches = useBranchList();
-  // const branch_code = branches?.map((row) => {
-  // 	return row.value;
-  // });
-
-  // const roleJobs = useApprovalRoleJob();
-  // const appType = useApplicationType();
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const [size, setSize] = useState(10);
   const [total, setTotal] = useState(true);
   const [loading, setLoading] = useState(false);
   const [values, setValues] = useState();
-  // const loading = false;
-  // const [closeApp, setCloseApp] = useState(true);
-  // const [selectorReset, setSelectorReset] = useState(false);
   const selectorReset = false;
-  // const [dateVal, setDateVal] = useState([]);
 
-  // const [noCloseAplikasi, setNoCloseAplikasi] = useState("");
-  // const [noApplikasi, setNoApplikasi] = useState("");
   const [query, setQuery] = useState("");
-  // const [debitur, setDebitur] = useState("");
-  // const [selectScreenings, setSelectScreenings] = useState(null);
-  // const [selectBranches, setSelectBranches] = useState(null);
-  // const [selectRoles, setSelectRoles] = useState(null);
-  // const [isDataReset, setDataReset] = useState(false);
-
-  // const [startValue, setStartValue] = useState(false);
-  // const [endValue, setEndValue] = useState(false);
-  // const [endOpen, setEndOpen] = useState(false);
-
-  // const data = useSelector((state) => state.data);
-  // const rows = data?.map((row) => ({
-  //   orderId: row.order_id,
-  //   sourceOrder: row.source_order_desc,
-  //   cabang:
-  //     (row.branch_code ? row.branch_code : "") +
-  //     " - " +
-  //     (row.branch_desc ? row.branch_desc : ""),
-  //   noAplikasi: row.application_id,
-  //   tanggalAplikasi: row.application_date
-  //     ? dateParser(row.application_date, row.order_id)
-  //     : "",
-  //   namaDebitur: row.customer_name,
-  //   alamatDomisili: row.alamat,
-  //   namaDealer: row.outlet_channel_desc,
-  //   hasilScreening: row.screening_2,
-  // }));
   
 	const data = useSelector((state) => state.data);
   const rows = data?.products?.products.map((row) => ({
@@ -419,112 +243,34 @@ const Index = ({ token }) => {
 
   console.log("data", data);
   console.log("rows", values);
-  // const screeningList = [
-  // 	{ label: "INSTANT APPROVAL", value: "INSTANT APPROVAL" },
-  // 	{ label: "NON IA – TELE SURVEY", value: "TELE SURVEY" },
-  // 	{ label: "NON IA – SILENT SURVEY", value: "SILENT SURVEY" },
-  // 	{ label: "NON IA – REGULAR SURVEY", value: "REGULER SURVEY" },
-  // ];
 
   const fetchData = async () => {
-    // data.push();
     console.log("data", data);
     try {
     	setPage(1);
     	setSize(10);
     	setTotal(true);
-    	// values.page = 1;
-    	// values.size = 10;
     	setLoading(true);
       await dispatch(
       await actionFetchApprovalData());
-    	// if (selectBranches || branches[0]) {
-    	// } else {
-    	// 	showError("Filter Cabang harus dipilih!");
-    	// }
-    	// dispatch(setMarital(null));
-    	// dispatch(setFlagTagih(null));
-    	// dispatch(setKtpDomisili(false));
-    	// dispatch(setKtpDomisiliData({}));
-    	// dispatch(setFlagJoinIncome(null));
-    	// ApplicationStorage.value = {};
     } finally {
     	setLoading(false);
     }
   };
 
-  // const handleBranchChange = (value) => {
-  // 	setSelectBranches(value);
-  // 	if (typeof values.branch_code != "undefined" && value == "ALL") {
-  // 		delete values.branch_code;
-  // 	} else {
-  // 		setValues({ ...values, branch_code: value });
-  // 	}
-  // };
-
-  // const updatePagination = async (_page, _size) => {
-  // 	setPage(_page);
-  // 	setSize(_size);
-  // 	if (page != _page || size != _size) {
-  // 		setTotal(true);
-  // 		values.page = _page;
-  // 		values.size = _size;
-  // 		try {
-  // 			setLoading(true);
-  // 			await dispatch(
-  // 				await actionFetchApprovalData({
-  // 					...values,
-  // 				})
-  // 			);
-  // 		} finally {
-  // 			setSelectorReset(false);
-  // 			setLoading(false);
-  // 		}
-  // 	}
-  // };
-
-  // const handleScreeningChange = (value) => {
-  // 	setSelectScreenings(value);
-  // 	setValues({ ...values, screening: value });
-  // };
-
   const handleApplicationSearch = async (e) => {
     setQuery(e.target.value)
-    // setValues({...data, query: e.target.value})
     console.log('testing dulu')
     try {
     	setPage(1);
     	setSize(10);
     	setTotal(true);
-    	// values.page = 1;
-    	// values.size = 10;
-    	// setLoading(true);
       await dispatch(
       await actionSearchData(query));
-    	// if (selectBranches || branches[0]) {
-    	// } else {
-    	// 	showError("Filter Cabang harus dipilih!");
-    	// }
-    	// dispatch(setMarital(null));
-    	// dispatch(setFlagTagih(null));
-    	// dispatch(setKtpDomisili(false));
-    	// dispatch(setKtpDomisiliData({}));
-    	// dispatch(setFlagJoinIncome(null));
-    	// ApplicationStorage.value = {};
     } finally {
     	console.log('cari products');
     }
   };
-
-  // const handleDebiturChange = (e) => {
-  // 	setDebitur(e.target.value);
-  // 	if (e.target.value == "") {
-  // 		delete values.customer_name;
-  // 		setValues({ ...values });
-  // 	} else {
-  // 		setValues({ ...values, customer_name: e.target.value });
-  // 	}
-  // };
 
   const resetData = async (e) => {
     setQuery(e.target.value)
@@ -539,64 +285,7 @@ const Index = ({ token }) => {
   // first load
   useEffect(() => {
     fetchData();
-    // data.push(
-
-    // );
-    // console.log(rows);
   }, []);
-
-  // // on reset clicked
-  // // useEffect(() => {
-  // // 	if (isDataReset) {
-  // // 		fetchData();
-  // // 		setDataReset(false);
-  // // 	}
-  // // }, [isDataReset]);
-
-  // const disabledStartDate = (startValue) => {
-  // 	return false;
-  // };
-
-  // const disabledEndDate = (endValue) => {
-  // 	if (!startValue) {
-  // 		return false;
-  // 	}
-
-  // 	const tooLate =
-  // 		endValue && endValue > moment(startValue).add(30, "days");
-  // 	const tooEarly = endValue && endValue < moment(startValue);
-
-  // 	return !!tooEarly || !!tooLate;
-  // };
-
-  // const onStartChange = (value) => {
-  // 	setStartValue(value);
-  // 	setEndValue(moment(value).add(30, "days"));
-  // 	if (value) {
-  // 		setValues({
-  // 			...values,
-  // 			start_date: value.format("YYYY/MM/DD") + " 00:00:00",
-  // 			end_date:
-  // 				moment(value).add(30, "days").format("YYYY/MM/DD") +
-  // 				" 23:59:59",
-  // 		});
-  // 	} else {
-  // 		setEndValue("");
-  // 		delete values.start_date;
-  // 		delete values.end_date;
-  // 		setValues(values);
-  // 	}
-  // };
-
-  // const onEndChange = (value) => {
-  // 	setEndValue(value);
-  // 	if (value) {
-  // 		setValues({
-  // 			...values,
-  // 			end_date: value.format("YYYY/MM/DD") + " 23:59:59",
-  // 		});
-  // 	}
-  // };
 
   return (
     <div style={{
@@ -627,22 +316,15 @@ const Index = ({ token }) => {
           <Row gutter={12}>
             <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
               <Select
-                //   disabled={!closeApp}
                 suffixIcon={<CaretDownOutlined />}
                 placeholder="Sample Drop Down"
-                // value={selectBranches}
-                //   options={branches}
-                //   defaultValue={branches[0].label}
-                //   onChange={handleBranchChange}
               />
             </Col>
             <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
               <Input
-                //   disabled={!closeApp}
                 placeholder="Cari"
                   onChange={handleApplicationSearch}
                   value={query}
-                //   onKeyPress={allowOnlyNumber}
                 maxLength="14"
               />
             </Col>
@@ -658,11 +340,7 @@ const Index = ({ token }) => {
                   xs={24}
                 >
                   <DatePicker
-                    //   disabled={!closeApp}
                     placeholder="Sample Date Picker"
-                    //   disabledDate={disabledStartDate}
-                    //   onChange={onStartChange}
-                    //   value={startValue}
                     showToday={false}
                   />
                 </Col>
@@ -674,11 +352,7 @@ const Index = ({ token }) => {
                   xs={24}
                 >
                   <DatePicker
-                    //   disabled={!closeApp}
                     placeholder="Sample Date Picker"
-                    //   disabledDate={disabledEndDate}
-                    //   onChange={onEndChange}
-                    //   value={endValue}
                     showToday={false}
                   />
                 </Col>
@@ -686,22 +360,15 @@ const Index = ({ token }) => {
             </Col>
             <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
               <Input
-                //   disabled={!closeApp}
                 placeholder="Sample Field"
-                //   onChange={handleDebiturChange}
-                //   value={debitur}
               />
             </Col>
           </Row>
           <Row gutter={12}>
             <Col className={classes.inputColumn} lg={12} md={12} sm={24} xs={24}>
               <Select
-                //   disabled={!closeApp}
                 suffixIcon={<CaretDownOutlined />}
                 placeholder="Sample Drop Down"
-                //   value={selectScreenings}
-                //   options={screeningList}
-                //   onChange={handleScreeningChange}
               />
             </Col>
           </Row>
@@ -739,9 +406,6 @@ const Index = ({ token }) => {
               <List
                 pagination={{
                   showSizeChanger: true,
-                  // total: total ? data?.totalData : 0,
-                  // current: page,
-                  // onChange: (p, s) => updatePagination(p, s),
                 }}
                 dataSource={selectorReset ? [] : rows}
                 itemLayout="vertical"
@@ -804,9 +468,6 @@ const Index = ({ token }) => {
                 }}
                 pagination={{
                   showSizeChanger: true,
-                  // total: total ? data?.totalData : 0,
-                  // current: page,
-                  // onChange: (p, s) => updatePagination(p, s),
                 }}
                 scroll={{ x: 1600 }}
               />

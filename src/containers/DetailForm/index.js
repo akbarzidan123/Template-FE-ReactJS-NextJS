@@ -20,20 +20,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 // Constants
 import {
-  CUSTOMER_IDENTITY_FORMS,
-  FINANCING_OBJECT_FORMS,
-  ORDER_IDENTITY_FORMS,
-  OWNERSHIP_DATA_FORMS,
-  //   REGULER_SURVEY_FORMS,
-  //   SILENT_SURVEY_FORMS,
-  //   TELE_SURVEY_FORMS,
-} from "src/constants/survey-forms";
+  TAB_FORM_1,
+  TAB_FORM_2,
+  TAB_FORM_3,
+  TAB_FORM_4,
+} from "src/constants/tab-forms";
 // import {
 //   fetchCalculatedIncomeWira,
 //   fetchCalculatedIncomeNonWira,
 // } from "src/redux/actions/config";
 // Containers
-import ApplicationDetail from "src/containers/ReturnSurveyKYC/ApplicationDetail";
+import ApplicationDetail from "src/containers/DetailForm/ApplicationDetail";
 import {actionFetchDataById} from "src/redux/actions/data";
 import { actionGetProductCategoryList } from "src/redux/actions/categorySelector";
 
@@ -82,19 +79,19 @@ const { Panel } = Collapse;
 const tabs = [
   {
     tab: "Home",
-    collapses: CUSTOMER_IDENTITY_FORMS,
+    collapses: TAB_FORM_1,
   },
   {
     tab: "Customer Handling",
-    collapses: ORDER_IDENTITY_FORMS,
+    collapses: TAB_FORM_2,
   },
   {
     tab: "Data Entry Completion",
-    collapses: FINANCING_OBJECT_FORMS,
+    collapses: TAB_FORM_3,
   },
   {
     tab: "Simulation",
-    collapses: OWNERSHIP_DATA_FORMS,
+    collapses: TAB_FORM_4,
   },
   // {
   //   tab: "Hasil Survey",

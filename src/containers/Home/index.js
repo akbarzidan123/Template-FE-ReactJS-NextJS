@@ -12,7 +12,7 @@ import jwt_decode from "jwt-decode";
 
 import Dashboard from "../Dashboard/index";
 import Login from "../../containers/Login/index";
-import ReturnSurveyKYC from "../../containers/ReturnSurveyKYC";
+import ReturnSurveyKYC from "../DetailForm";
 import applicationStorage from "src/utils/application-storage";
 import idStorage from "src/utils/id-storage";
 

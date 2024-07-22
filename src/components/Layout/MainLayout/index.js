@@ -14,7 +14,7 @@ import AuthStorage from "src/utils/auth-storage";
 // icons
 import ArrowLeftIcon from "public/svg/arrow-left.svg";
 // constants
-import { ROUTES, SUB_ROUTES } from "src/constants/routes";
+// import { ROUTES, SUB_ROUTES } from "src/constants/routes";
 // style
 import classes from "./style.module.less";
 import { useEffect, useState } from "react";

@@ -4,8 +4,8 @@ import ReviseIcon from 'public/svg/revise.svg';
 
 export const ROUTES = [
 	{
-		name: 'Return to Revise',
-		pathname: '/return',
+		name: 'Home',
+		pathname: '/home',
 		icon: ReviseIcon,
 	},
 ];
@@ -15,34 +15,14 @@ export const SUB_ROUTES = {
 		name: 'Home',
 		data: [],
 	},
-	'return': {
-		name: 'Return to Revise',
+	'detail': {
+		name: 'detail',
 		data: [
 			{
-				name: 'Return / Survey - KYC',
-				pathname: '/return',
-				parent: 'Return To Revise',
+				name: 'Home / Detail',
+				pathname: '/detail',
+				parent: 'Home Detail',
 			},
-		],
-	},
-	'survey': {
-		name: 'Survey',
-		data: [
-			{
-				name: 'Survey',
-				pathname: '',
-				parent: 'Survey',
-			}
-		],
-	},
-	'kyc': {
-		name: 'Kyc',
-		data: [
-			{
-				name: 'Know Your Customer',
-				pathname: '',
-				parent: 'Kyc',
-			}
 		],
 	},
 };
