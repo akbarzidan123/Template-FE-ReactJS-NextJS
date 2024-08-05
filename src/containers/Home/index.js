@@ -26,6 +26,7 @@ const Index = (props) => {
   // const { query, asPath } = useRouter();
   // const [, token, params] = asPath.split("/");
   const [loading, setLoading] = useState(true);
+  const [tokenLogin, setTokenLogin] = useState(null);
   // const { data } = useSession()
   const [session, loadingSession] = useSession()
 
@@ -36,44 +37,21 @@ const Index = (props) => {
 
   console.log("data", application);
 
-  const onGetConfig = async (values) => {
-    try {
-      if (AuthStorage.loggedIn) {
-        const auth = AuthStorage.data;
-        setLoading(true);
-        // await actionGetConfig(auth);
-      }
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    onGetConfig();
-    if (order_id != undefined) {
-      idStorage.value = {};
-      applicationStorage.value = {};
-    }
-  }, []);
-
   // untuk handle kondisi after login (exp: catch token login, etc)
   useEffect(() => {
-    // const decodedToken = await decode({
-    //   token: session?.jwt,
-    //   secret
-    // });
-    console.log("data login: ", session);
-    // console.log("hasil decode: ", decodedToken);
-
+    // jika berhasil login
     if(session) {
-    const token = session.jwt
-    
-    try{
-        const decoded = jwt_decode(token)
+    const token = session.jwt // ambil token jwt yang dikirim dari handler auth
+    setTokenLogin(token) // set token ke dalam useState untuk bisa digunakan
 
-        console.log('Decoded JWT payload:', decoded)
+    console.log("data login: ", session);    
+
+    try{
+        const decoded = jwt_decode(token) // decoded token menjadi payload
+        // takeout key exp dan iat karena expired time
+        // karena sudah di setup di konfigurasi handler auth
+        delete decoded.exp
+        delete decoded.iat
       }catch(e) {
         console.log("Error pada saat decode token jwt: ", e)
       }
@@ -111,7 +89,7 @@ const Index = (props) => {
               )}
             </>
           ) : (
-            <Login token={token} />
+            <Login token={tokenLogin} />
           )}
         </>
       ) : (
@@ -125,7 +103,7 @@ const Index = (props) => {
               )}
             </>
           ) : (
-            <Login token={null} />
+            <Login token={tokenLogin} />
           )}
         </>
       )}
