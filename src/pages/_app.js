@@ -49,7 +49,7 @@ const MyApp = (props) => {
     router.events.on("routeChangeError", () => NProgress.done());
 
     // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
+    // from the event with the off method:
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
       router.events.off("routeChangeComplete", () => NProgress.done());
@@ -72,9 +72,9 @@ const MyApp = (props) => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", async function () {
         try {
-          window.swRegistration = await navigator.serviceWorker.register(
-            "/sw.js"
-          );
+          // window.swRegistration = await navigator.serviceWorker.register(
+          //   "/sw.js"
+          // );
           const permission = await requestNotificationPermission();
           window.showLocalNotification = (title, options) => {
             window.swRegistration.showNotification(title, options);
@@ -141,7 +141,7 @@ MyApp.getInitialProps = async (context) => {
     }
   }
 
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  // calls page's getInitialProps and fills appProps.pageProps
   let pageProps = {};
 
   if (Component?.getInitialProps) {
